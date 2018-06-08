@@ -1,0 +1,327 @@
+<div class="container">
+  <div class="col-md-6 col-md-offset-1 col-sm-12 col-xs-12" *ngIf="loader" id="loading">
+    <img src="./assets/img/loader.gif" id="loading-image">
+    <h4 class="text-center loader-header">Please wait...</h4>
+  </div>
+
+  <div class="container well" style="margin-top : 2%;">
+
+    <div class="row">
+      <div class="col-md-6 col-sm-6 col-xs-12">
+        <div class="panel panel-info">
+
+          <div class="panel-body">
+            <div class="row">
+              <div class="col-md-3 col-lg-3 " align="center">
+                <img alt="User Pic" src="{{company.base64Logo}}" class="img-circle img-responsive"> </div>
+
+
+
+
+              <div class="col-md-5 col-lg-9">
+
+
+
+                <table class="table table-user-information">
+                  <thead align="center">
+                    <tr class="titles">
+                      <th>Company Information</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+
+
+                    <tr>
+                      <td>
+                        <strong>Company Name:</strong>
+                      </td>
+                      <td>{{ company.companyName }}</td>
+                    </tr>
+
+
+                    <tr>
+                      <td>
+                        <strong>Director :</strong>
+                      </td>
+                      <td>{{ company.director }}</td>
+                    </tr>
+
+
+                    <tr>
+                      <td>
+                        <strong>Company Tel:</strong>
+                      </td>
+                      <td>{{ company.telephone }}</td>
+                    </tr>
+
+
+
+
+                    <tr>
+                      <td>
+                        <strong>Reg No:</strong>
+                      </td>
+                      <td>{{ company.companyRegistrationNo }}</td>
+                    </tr>
+
+
+                    <tr>
+                      <td>
+                        <strong>Address</strong>
+                      </td>
+                      <td>{{ company.addressLine1}}
+                        <br /> {{company.addressLocality}}
+                        <br /> {{company.addressTown}}
+                        <br /> {{company.postalCode }}</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <strong>Email Address:</strong>
+                      </td>
+                      <td>{{ company.email }}</td>
+                    </tr>
+
+                  </tbody>
+                </table>
+
+
+
+              </div>
+
+              <div class="col-md-5 col-lg-9">
+                <table class="table table-user-information">
+                  <thead align="center">
+                    <tr class="titles">
+                      <th>Recipient Information</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+
+                    <tr>
+                      <td>
+                        <strong>Recipient Name:</strong>
+                      </td>
+                      <td>{{invoiceData.recipientName}}</td>
+                    </tr>
+
+                    <tr>
+                      <td>
+                        <strong>Recipient Email:</strong>
+                      </td>
+                      <td>{{invoiceData.recipientEmail}}</td>
+                    </tr>
+
+
+                    <tr>
+                      <td>
+                        <strong>Recipient Tel:</strong>
+                      </td>
+                      <td>{{invoiceData.recipientPhone}}</td>
+                    </tr>
+
+
+
+
+                    <tr>
+                      <td>
+                        <strong>Reference No:</strong>
+                      </td>
+                      <td>{{invoiceData.reference}}</td>
+                    </tr>
+
+                    <tr>
+                      <td>
+                        <strong>Recipient Address</strong>
+                      </td>
+                      <td>{{invoiceData.address.addressLine1}}
+                        <br>{{invoiceData.address.locality}}
+                        <br>{{invoiceData.address.city}}
+                        <br>{{invoiceData.address.postalCode}}</td>
+                    </tr>
+
+
+
+
+
+                  </tbody>
+                </table>
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-sm-6 col-xs-12">
+        <div class="panel panel-default panel-sizing">
+
+          <div class="panel-heading">
+            <h3 class="panel-title">
+              <strong>Order summary</strong>
+            </h3>
+          </div>
+          <div class="panel-body">
+            <div class="table-responsive">
+              <table class="table table-condensed">
+                <thead>
+                  <tr>
+                    <td>
+                      <strong>Item</strong>
+                    </td>
+                    <td class="text-center">
+                      <strong>Price</strong>
+                    </td>
+                    <td class="text-center">
+                      <strong>Quantity</strong>
+                    </td>
+                    <td class="text-right">
+                      <strong>Totals</strong>
+                    </td>
+                  </tr>
+                </thead>
+                <tbody>
+
+                  <tr *ngFor="let item of invoiceData.listOfInvoice">
+                    <td>{{item.description}}</td>
+                    <td class="text-center">{{item.price | currency:"ZAR"}}</td>
+                    <td class="text-center">{{item.quantity}}</td>
+                    <td class="text-right">{{ item.price * item.quantity | currency:"ZAR" }}</td>
+                  </tr>
+
+                  <tr>
+                    <td class="no-line text-center">
+                      <strong>Total</strong>
+                    </td>
+                    <td class="no-line text-right">{{total | currency:"ZAR"}}</td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <form class="form-group" #bankForm="ngForm" name="myBankForm">
+
+                <hr>
+                <div class="form-group input-group">
+                  <span class="input-group-addon">
+                    <i class="fa fa-bank"></i>
+                  </span>
+                  <input ng-disabled="disableButton" type="text" class="form-control c" name="bankname" [(ngModel)]="bankname" required id="autocomplete"
+                    ng-minlength="2" placeholder="Bank name" #bankName="ngModel" />
+
+                </div>
+
+                <div class="form-group input-group">
+                  <span class="input-group-addon">
+                    <i class="fa fa-id-card-o"></i>
+                  </span>
+                  <input ng-disabled="disableButton" type="text" class="form-control c" name="accountHolder" [(ngModel)]="accountHolder" required
+                    id="autocomplete2" placeholder="Account Holder name" #accountHolder_="ngModel">
+
+                </div>
+
+
+                <div class="form-group input-group">
+                  <span class="input-group-addon">
+                    <i class="fa fa-address-card" aria-hidden="true"></i>
+                  </span>
+                  <input ng-disabled="disableButton" type="number" class="form-control" name="accountNo" id="phone" [(ngModel)]="accountNo"
+                    required ng-pattern="/^[0-9]*$/" placeholder="Account Number" #accountno="ngModel">
+
+                </div>
+                <div class="form-group input-group">
+                  <span class="input-group-addon">
+                    <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+                  </span>
+
+                  <input ng-disabled="disableButton" type="number" class="form-control" name="branch" id="mytext" [(ngModel)]="branch" required
+                    ng-pattern="/^[0-9]{6}$/" placeholder="Branch code" #branch_="ngModel">
+                </div>
+              </form>
+            </div>
+          </div>
+
+
+
+          <form #userForm="ngForm" (ngSubmit)="onFormSubmit(userForm, bankForm)">
+            <div class="pull-right">
+              <fieldset class="form-group row">
+                <legend class="col-form-legend col-sm-10"></legend>
+                <div class="col-sm-10">
+
+
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input type="radio" class="form-check-input" [(ngModel)]="invoice" name="bill" value="invoices" required #bill="ngModel">Invoice
+                    </label>
+                  </div>
+
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input type="radio" class="form-check-input" [(ngModel)]="quote" name="bill" value="quotes" required #bill="ngModel"> Quotation
+                    </label>
+                  </div>
+
+
+
+                </div>
+              </fieldset>
+              <!-- <a class="btn downloadbtn">Download Document</a> download() -->
+              <button class="btn downloadbtn" type="submit" >Download Document</button>
+              <br />
+
+              <p class="pull-right" style="color:red;" *ngIf="bill.invalid && userForm.submitted && !isValidFormSubmitted" [ngClass]="'error'">
+                Please Select The Bill!
+              </p>
+              <br />
+              <p class="pull-right" style="color:#63bc4c ;" *ngIf="isValidFormSubmitted" [ngClass]="'success'">
+                {{ resultMsg }}
+              </p>
+            </div>
+          </form>
+
+
+
+        </div>
+      </div>
+      <br>
+
+    </div>
+
+  </div>
+
+
+
+  <div class="modal fade" id="emailFile" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 style="color:#007299;">Choose Email</h4>
+        </div>
+        <div class="modal-body">
+          <form name="myF">
+            <div class="form-group">
+              <label class="sr-only" for="make">Email Address:</label>
+              <input type="email" required name="make" id="make" class="form-control" placeholder="Enter email address" value="hhhh" />
+              <p style="color:red;">Enter correct email address</p>
+            </div>
+
+
+
+            <br>
+            <button type="button" class="btn btn-info btn-block btn-md">Email</button>
+            <div class="form-group">
+              <h5 class="text-center" style="color:blue;">hhhhh</h5>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

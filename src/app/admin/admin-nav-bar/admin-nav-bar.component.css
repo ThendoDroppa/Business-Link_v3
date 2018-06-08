@@ -1,0 +1,215 @@
+/* For Social Wrapper */
+.social{
+    background:#6d6e70;
+    padding:10px 0;
+}
+.social-wrapper .social-icon a{
+    float:left;
+    font-size:13px;
+    color:#d6df23;
+}
+.social-wrapper .social-icon a:hover{
+    color:#82ca9c;
+}
+.social-wrapper .social-icon a i{
+    padding-right:10px;
+}
+.social-wrapper .social-contact{
+    float:right;
+    font-size:13px;
+}
+.social-wrapper .social-contact a{
+    color:#d6df23;
+    margin-right:20px;
+}
+.social-wrapper .social-contact a:hover{
+    color:#82ca9c;
+}
+.social-wrapper .social-contact a i{
+    padding-right:5px;
+}
+
+.navbar-toggle:focus,
+.navbar-toggle:active {
+    outline: 0;
+}
+
+
+
+
+.hero-text-heading, .probootstrap-hero h1, .flexslider .probootstrap-heading {
+    font-size: 52px;
+    font-weight: 300;
+    margin-bottom: 10px;
+    margin-top: 0;
+    line-height: 64px;
+    color: white;
+    font-weight: 300;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .hero-text-heading, .probootstrap-hero h1, .flexslider .probootstrap-heading {
+      font-size: 40px;
+      line-height: 1.5;
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    .hero-text-heading, .probootstrap-hero h1, .flexslider .probootstrap-heading {
+      font-size: 30px;
+    }
+  }
+  
+  .hero-text-subheading, .probootstrap-hero p, .flexslider .probootstrap-subheading {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.9);
+  }
+  
+  .hero-text-subheading:last-child, .probootstrap-hero p:last-child, .flexslider .probootstrap-subheading:last-child {
+    margin-bottom: 0;
+  }
+  
+  .probootstrap-page-wrapper {
+    max-width: 1500px;
+    margin: 0 auto;
+    background: #ffffff;
+  }
+  
+  @media screen and (max-width: 1500px) {
+    .probootstrap-page-wrapper {
+      max-width: 1200px;
+    }
+    .probootstrap-page-wrapper .container {
+      max-width: 1000px;
+    }
+  }
+  
+  @media screen and (max-width: 1200px) {
+    .probootstrap-page-wrapper {
+      max-width: 960px;
+    }
+    .probootstrap-page-wrapper .container {
+      max-width: 900px;
+    }
+  }
+  
+  .probootstrap-sidebar-inner {
+    background: #ffffff;
+    padding: 40px;
+    margin-bottom: 40px;
+    -webkit-box-shadow: 0px 2px 20px 0px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 2px 20px 0px rgba(0, 0, 0, 0.1);
+  }
+  
+  .probootstrap-side-menu {
+    padding: 0;
+    margin: 0;
+  }
+  
+  .probootstrap-side-menu li {
+    padding: 0;
+    margin: 0 0 20px 0;
+    list-style: none;
+    font-size: 15px;
+  }
+  
+  .probootstrap-side-menu li.active {
+    color: #63bc4c;
+  }
+  
+  .probootstrap-side-menu li.active a {
+    color: #63bc4c;
+  }
+  
+  .probootstrap-header-top {
+    margin-top: 0;
+    position: relative;
+    -webkit-transition: .3s all;
+    transition: .3s all;
+    padding-top:5px;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .probootstrap-header-top {
+     
+    }
+    .probootstrap-header-top.active {
+      
+    }
+  }
+  
+  .probootstrap-header-top > .container {
+    border-bottom: 1px solid #f2f2f2;
+  }
+  
+  .probootstrap-top-quick-contact-info {
+    padding-top: 7px;
+    padding-bottom: 7px;
+    font-size: 15px;
+    font-family: Open Sans,sans-serif;
+  }
+  
+  .probootstrap-top-quick-contact-info span {
+    display: inline-block;
+    margin-right: 20px;
+  }
+  
+  .probootstrap-top-quick-contact-info span i {
+    display: inline-block;
+    margin-right: 10px;
+    color: #1b75bb;
+  }
+  
+  .probootstrap-top-social {
+    text-align: right;
+    padding-top: 15px;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .probootstrap-top-social {
+      text-align: left;
+    }
+  }
+  
+  .probootstrap-top-social ul {
+    padding: 0;
+    margin: 5px 0 0 0;
+  }
+  
+  .probootstrap-top-social ul li {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: inline-block;
+  }
+  
+  .probootstrap-top-social ul li a {
+    display: inline-block;
+    padding: 4px;
+    color: #63bc4c;
+  }
+  
+  .probootstrap-top-social ul li:last-child a {
+    padding-right: 0;
+  }
+  
+  .probootstrap-search-icon {
+    margin-left: 30px;
+  }
+  
+  .probootstrap-navbar {
+    border: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    border-radius: 0px;
+    margin-bottom: 0px;
+    background: #ffffff;
+    -webkit-transition: .3s all;
+    transition: .3s all;
+  }
+  a{
+    cursor:pointer;
+  }
+  
+ 
+ 

@@ -1,0 +1,109 @@
+<div class="col-md-6 col-md-offset-1 col-sm-12 col-xs-12" *ngIf="loader" id="loading">
+  <img src="./assets/img/loader.gif" id="loading-image">
+  <h4 class="text-center loader-header">Please wait...</h4>
+</div>
+<div class="container">
+  <div class="col-md-3"></div>
+  <div class="col-md-6">
+
+    <div class="row myborder">
+      <form role="form" #userForm="ngForm">
+        <h4 style="color: #63bc4c; margin: initial; margin-bottom: 10px;">Company Information</h4>
+        <hr>
+
+        <div class="input-group margin-bottom-20">
+          <span class="input-group-addon">
+            <i class="glyphicon glyphicon-user mycolor"></i>
+          </span>
+          <input type="text" size="60" maxlength="255" class="form-control" [(ngModel)]="directorName" placeholder="Director Name"
+            #directorFirstname='ngModel' name="directorName" id="directorName" pattern="[a-zA-Z ]*" required>
+
+          <p *ngIf="directorFirstname.errors && (directorFirstname.dirty || directorFirstname.touched)">
+            <span [hidden]="!directorFirstname.errors.required" style="color:red;">Enter your diretor-name</span>
+          </p>
+        </div>
+
+        <div class="input-group margin-bottom-20">
+          <span class="input-group-addon">
+            <i class="glyphicon glyphicon-home mycolor"></i>
+          </span>
+          <input type="text" size="60" maxlength="255" class="form-control" [(ngModel)]="companyName" placeholder="Company Name" name="comapanyName"
+            id="comapanyName" #companyname='ngModel' required>
+        </div>
+        <p *ngIf="companyname.errors && (companyname.dirty || companyname.touched)">
+          <span [hidden]="!companyname.errors.required" style="color:red;">Enter your company-name</span>
+        </p>
+
+        <div class="input-group margin-bottom-20">
+          <span class="input-group-addon">
+            <i class="glyphicon glyphicon-home mycolor"></i>
+          </span>
+          <input size="60" maxlength="255" class="form-control" [(ngModel)]="companyRegistrationNo" placeholder="Company Registration Number"
+            name="addressCode" id="addressCode" type="text" required>
+        </div>
+
+        <div class="input-group margin-bottom-20">
+          <span class="input-group-addon">
+            <i class="glyphicon glyphicon-envelope mycolor"></i>
+          </span>
+          <input size="60" maxlength="255" class="form-control" [(ngModel)]="Companyemail" placeholder="Company e-mail" name="email"
+            id="email" type="email" required>
+        </div>
+
+
+        <div class="input-group margin-bottom-20">
+          <span class="input-group-addon">
+            <i class="glyphicon glyphicon-phone-alt mycolor"></i>
+          </span>
+          <input class="form-control" size="60" required step="1" maxlength="10" minlength="10" pattern="[0-9]*" [(ngModel)]="telephone"
+            placeholder="Telephone Number" name="telephoneNumber" id="telephoneNumber" type="tel" required>
+        </div>
+
+
+        <div class="input-group margin-bottom-20">
+          <span class="input-group-addon">
+            <i class="fa fa-address-book mycolor"></i>
+          </span>
+          <input size="60" maxlength="255" class="form-control" [(ngModel)]="addressLine1" placeholder="Address" name="address" id="address"
+            type="text" required>
+        </div>
+
+        <div class="input-group margin-bottom-20">
+          <span class="input-group-addon">
+            <i class="glyphicon glyphicon-home mycolor"></i>
+          </span>
+          <input size="60" maxlength="255" class="form-control" [(ngModel)]="addressLocality" placeholder="Address Locacity" name="addressLocacity"
+            id="addressLocacity" type="text" required>
+        </div>
+
+        <div class="input-group margin-bottom-20">
+          <span class="input-group-addon">
+            <i class="glyphicon glyphicon-home mycolor"></i>
+          </span>
+          <input size="60" maxlength="255" class="form-control" [(ngModel)]="addressTown" placeholder="Address Town" name="addressTown"
+            id="addressTown" type="text" required>
+        </div>
+
+
+        <div class="input-group margin-bottom-20">
+          <span class="input-group-addon">
+            <i class="glyphicon glyphicon-home mycolor"></i>
+          </span>
+          <input class="form-control" size="60" required step="1" maxlength="4" minlength="4" pattern="[0-9]*" [(ngModel)]="postalCode"
+            placeholder="Address Code" name="addressCode" id="addressCode" type="text" required>
+        </div>
+
+
+
+        <div class="row">
+          <div class="col-md-12">
+            <button class="btn-u pull-left" [disabled]="!userForm.form.valid" type="submit" (click)="addNewCompany()">Add Company </button>
+          </div>
+        </div>
+
+        <p class="text-center">{{msg}}</p>
+      </form>
+    </div>
+    <div class="col-md-2"></div>
+  </div>
+</div>

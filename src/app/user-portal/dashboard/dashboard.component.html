@@ -1,0 +1,109 @@
+<div class="container" id="wrapper">
+  <!-- Page Content -->
+
+  <br>
+  <div class="container">
+
+    <div class="row">
+      <div class="col-lg-12">
+        <h1 class="page-header">DashBoard</h1>
+      </div>
+    </div>
+
+    <div class="well col-md-8 col-sm-8 col-md-offset-2" id="companyDetails">
+      <!-- <div class="col-md-3 col-md-offset-3">
+        <a class="thumbnail">
+          <img style="height:171px;width:180;" class="image rounded mx-auto d-block" />
+        </a>
+        <div class="text-center" style="color:#1b75bb">
+          <h5>Company Logo</h5>
+        </div>
+      </div> -->
+
+      <div class=" col-md-5 col-sm-5 col-md-offset-1">
+        <div class="heading">
+          <strong>Account Details</strong>
+        </div>
+
+        <div class="myList col-md-12 col-sm-12 col-md-offset-0" style="padding-top:20px">
+          <tr>
+            <td>
+              <label> First Name : </label>{{userPortalObj.owner.firstName}}
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <label> Last Name : </label>{{userPortalObj.owner.surname}}
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <label> E-mail : </label>{{userPortalObj.owner.email}}
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <label> Contact Number : </label>{{userPortalObj.owner.mobile}}
+            </td>
+          </tr>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="panel panel-success">
+    <div class="table-heading">
+      <div class="text-center" style="color:white;padding-top: 10px;font-size:18px">Companies Details</div>
+    </div>
+    <div class="panel-body ">
+      <div class="table-responsive responsive-table col-md-12 col-sm-12">
+        <div class="table-responsive responsive-table">
+          <div class="input-group">
+            <span class="input-group-btn">
+              <button class="btn btn-default" type="button">Search </button>
+            </span>
+            <input type="text" class="form-control" style="width:30%" ng-model="expression">
+
+
+
+            <span class="input-group-btn">
+
+              <button class="btn btn-primary" type="button" (click)="addCompany()">Add Company</button>
+
+            </span>
+          </div>
+          <table class="table table-responsive responsive-table ">
+            <thead class="thead-inverse">
+              <tr>
+                <th>Name</th>
+                <th>Director</th>
+                <th>Email Address</th>
+                <th>Reg No</th>
+                <th>Quotation</th>
+                <th>Invoice</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let company of companies">
+                <td>{{company.companyName }}</td>
+                <td>{{company.director }}</td>
+                <td>{{company.email }}</td>
+                <td>{{company.companyRegistrationNo }}</td>
+                <td>
+                  <button type="button" class="btn btn-primary" (click)="viewQuotes(company)">View</button>
+                </td>
+                <td>
+                  <button type="button" class="btn btn-primary" (click)="viewInvoice(company)">view</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>

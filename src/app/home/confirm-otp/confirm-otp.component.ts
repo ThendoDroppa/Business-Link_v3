@@ -1,0 +1,56 @@
+import { Component, OnInit } from '@angular/core';
+
+import { ActivatedRoute } from '@angular/router';
+import { Response } from '@angular/http';
+
+import { LoginService } from '../../services/login.service';
+
+@Component({
+  selector: 'app-confirm-otp',
+  templateUrl: './confirm-otp.component.html',
+  styleUrls: ['./confirm-otp.component.css']
+})
+export class ConfirmOtpComponent implements OnInit {
+
+  email: string;
+  otp: number;
+  sub: any;
+  oid: string;
+  error: string = '';
+  success: string = '';
+
+  constructor(private route: ActivatedRoute, private loginService: LoginService) { }
+
+  ngOnInit() {
+    this.sub = this.route.params.subscribe(params => {
+      this.oid = params['oid'];
+      this.email = params['email'];
+    });
+  }
+
+  onSubmit() {
+    //activate(code, verificationCode, email)
+    this.error = '';
+    this.success = '';
+
+    this.loginService.activate(this.otp, this.oid, this.email)
+      .subscribe(
+      (response: Response) => {
+        if (response.status == 200) {
+          if (response.json().confirmed) {
+            this.success = "Your account is activated successful.";
+          } else {
+            this.error = "Account not active, verify the code.";
+          }
+        } else {
+          this.error = "Error occured, please contact Droppa Team.";
+        }
+      },
+      (err) => {
+        this.error = "Error occured, please contact Droppa Team.";
+      }
+      );
+    // alert("OTP Code : "+this.otp +" Email:"+this.email +" oid "+this.oid);
+  }
+
+}

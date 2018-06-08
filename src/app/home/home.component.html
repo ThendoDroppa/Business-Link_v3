@@ -1,0 +1,272 @@
+<!-- Header -->
+<header class="container" id="home" class="text-center">
+
+  <div class="intro-text" style="height:780px">
+
+    <div class="paragraph col-md-6 col-sm-5" style="padding-top: 210px;">
+      <hr class="myHr">
+      <h3 class="bottom-right">Direct, accurate and reliable quotation and invoicing</h3>
+      <hr class="myHr">
+
+    </div>
+
+  </div>
+
+</header>
+
+
+
+<!-- About Section START -->
+<div id="works" style="padding-top:50px">
+
+
+
+
+  <!-- our team section -->
+  <section id="teams" class="section teams">
+    <div class="container">
+      <div class="head_title text-center">
+        <h1>
+          <strong> How it Works</strong>
+        </h1>
+      </div>
+
+      <div class="row" style="padding-top:60px">
+        <div class="col-md-3 col-sm-6">
+          <div class="person">
+            <img src="assets/img/bb.png" alt="" class="img-responsive">
+            <div class="person-content">
+              <h4>Register your Account</h4>
+              <p>Capture your personal information on the sign up page.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-6">
+          <div class="person">
+            <img src="assets/img/house.png" alt="" class="img-responsive">
+            <div class="person-content">
+              <h4>Add Your Company</h4>
+              <p>Add your company information to your account. </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-6">
+          <div class="person">
+            <img src="assets/img/c.png" alt="" class="img-responsive">
+            <div class="person-content">
+              <h4>Create A Quote And Invoice</h4>
+              <p>Choose invoice or quotes and enter details.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-6">
+          <div class="person">
+            <img src="assets/img/d.png" alt="" class="img-responsive">
+            <div class="person-content">
+              <h4>Download Invoice Or Email It To Yourself</h4>
+              <p>Download Or Email the Bill document to yourself. </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+<!-- About Section END -->
+
+<!-- features Section -->
+<div id="features" class="service2 sections lightbg">
+  <div class="container">
+
+    <div class="head_title text-center">
+      <h1>
+        <strong> FEATURES</strong>
+      </h1>
+    </div>
+
+    <div class="row col-md-12 col-sm-12 col-md-offset-1">
+      <div class="main_service2">
+
+
+        <div class="service_content left">
+          <div class="col-md-6 col-sm-6">
+            <div class="single_service2">
+              <div class="single_service_left">
+                <img src="assets/img/QUOTE.png" class="img-responsive " alt="" />
+              </div>
+              <div class="single_service_right">
+                <h2>Quotes</h2>
+                <p>Register your company profile and create professional Quotes to your customers, generate PDF documents, download
+                  or email the document in 3 simple steps</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-sm-6">
+            <div class="single_service2">
+              <div class="single_service_left">
+
+                <img src="assets/img/invoice.png" alt="" />
+              </div>
+              <div class="single_service_right">
+                <h2>Invoice</h2>
+                <p>Register your company profile and create professional Invoices to your customers, generate PDF documents,
+                  download or email the document in 3 simple steps</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-sm-6">
+            <div class="single_service2">
+              <div class="single_service_left">
+                <img src="assets/img/DATA.png" alt="" />
+              </div>
+              <div class="single_service_right">
+                <h2>Data Management</h2>
+                <p>Manage the Quotes and Invoices that you have created and sent to your customer all easy and simple
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-sm-6">
+            <div class="single_service2">
+              <div class="single_service_left">
+                <img src="assets/img/msg1.png" alt="" />
+              </div>
+              <div class="single_service_right">
+                <h2>Email Notification</h2>
+                <p>Email the Quotes and Invoices to yourself or your customers at no extra charge</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- features END -->
+
+<!-- Contact STRAT -->
+<div id="contact" class="text-center">
+  <div class="parallax-overlay"></div>
+  <div class="container">
+    <div class="row">
+
+      <!-- Section Header -->
+      <div class="col-md-12 col-sm-12 col-xs-12 section-header wow fadeInDown">
+        <div class="head_title text-center" style="padding-bottom: 50px;">
+          <h1>
+            <strong>Contact us</strong>
+          </h1>
+
+        </div>
+      </div>
+      <!-- Section Header End -->
+
+      <div class="contact-details">
+
+
+        <!-- Contact Form -->
+        <div class="contact-form wow fadeInDown">
+
+          <!--NOTE: Update your email Id in "contact_me.php" file in order to receive emails from your contact form-->
+          <form #contact="ngForm" class="col-md-8 col-sm-10 col-xs-12 col-md-offset-2 col-sm-offset-1" name="sentMessage"
+           id="contactForm" novalidate (ngSubmit)="onSubmit()" >
+            <div class="col-md-6">
+              <input type="text" class="form-control" [(ngModel)]="name" name="FullName" placeholder="Full Name" id="name" />
+              <p class="help-block"></p>
+            </div>
+            <div class="col-md-6">
+              <input type="email" class="form-control" [(ngModel)]="email"  name="userName"   placeholder="Email" id="email" />
+            </div>
+
+            <div class="col-md-12">
+              <textarea rows="10" cols="100" class="form-control" [(ngModel)]="msgBody" name="comment"  placeholder="Message" id="message" minlength="5"
+                maxlength="999" style="resize:none"></textarea>
+            </div>
+
+            <div class="col-md-4 col-md-offset-4">
+              <br>
+              <div id="success"> </div>
+              <button type="submit" class="btn" (click)="onSubmit()">Submit Message</button>
+            </div>
+          </form>
+
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <!-- Contact END -->
+
+  <!-- footer STRAT -->
+  <div id="footer" class="text-center footer">
+
+    <div style="min-height: 250px;" class="footer" id="footer-sub">
+      <div class="container">
+        <div class="row col-md-12 col-sm-12 col-xs-12 col-md-offset-1">
+
+          <div class="col-md-4 ">
+            <h5>
+              <strong>Billinstantly</strong>
+            </h5>
+            <p style="padding-top:14px">Sed ut perspiciaatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem
+              aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+              Vivamus suscipit tortor eget felis porttitor volutpat. Cras ultricies ligula sed magna dictum porta. Mauris
+              blandit aliquet elit, eget tincidunt nibh pulvinar.</p>
+          </div>
+
+          <div class="col-md-3 col-md-offset-1 footer2">
+            <h5> Quik Links</h5>
+            <ul>
+              <li>
+                <a href="">Home</a>
+
+              </li>
+              <li>
+                <a href="">About Us</a>
+
+              </li>
+              <li>
+                <a href="">Features</a>
+
+              </li>
+              <li>
+                <a href="">Contact us</a>
+
+              </li>
+            </ul>
+          </div>
+
+          <div class="col-md-3 footer2">
+            <h5 style="text-align: left"> Contact Infomation </h5>
+            <ul style="padding-left: 80px;">
+              <li>
+                <a href="">
+                  <i class="fa fa-home" aria-hidden="true"></i>136 2nd St, Halfway House Estates, Midrand, 1685</a>
+
+              </li>
+              <li>
+                <a href="">
+                  <i class="fa fa-envelope-o" aria-hidden="true"></i>info@billinstantly.com</a>
+
+
+              </li>
+              <li>
+                <a href="">
+                  <i class="fa fa-phone" aria-hidden="true"></i>(011) 049-6953</a>
+
+              </li>
+
+            </ul>
+          </div>
+
+
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>

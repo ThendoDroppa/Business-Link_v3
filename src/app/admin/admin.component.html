@@ -1,0 +1,191 @@
+<div class="container  well" style="margin-top:165px;background-color:#fff">
+    <br>
+    <br>
+    <ul class="nav nav-tabs">
+        <li class="active">
+            <a data-toggle="tab" href="#home">Companies</a>
+        </li>
+        <li>
+            <a data-toggle="tab" href="#menu1">Users</a>
+        </li>
+        <li>
+            <a data-toggle="tab" href="#menu2">Quotations</a>
+        </li>
+        <li>
+            <a data-toggle="tab" href="#menu3">Invoices</a>
+        </li>
+    </ul>
+
+    <div class="tab-content">
+        <div id="home" class="tab-pane fade in active">
+            <br>
+            <h4 class="text-center">REGISTERED COMPANIES</h4>
+
+
+            <div class="col-lg-10 col-md-offset-1">
+                <div class="box">
+
+                    <div id="admin" class="body collapse in">
+                        <div class="table-responsive responsive-table">
+                            <table class="table table-condensed responsive-table">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Name</th>
+                                        <th>Director</th>
+                                        <th>Email</th>
+                                        <th>Reg No</th>
+                                        <th>Tel</th>
+                                        <th>Address</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="hovering">
+                                    <tr *ngFor="let company of companies; let i = index" (click)="viewCompany(company)">
+                                        <td>{{(1 + i )}}</td>
+                                        <td>{{ company.companyName }}</td>
+                                        <td>{{ company.director }}</td>
+                                        <td>{{ company.email }}</td>
+                                        <td>{{ company.companyRegistrationNo }}</td>
+                                        <td>{{ company.telephone }}</td>
+
+                                        <td>{{ company.addressLine1 }}
+                                            <br> {{ company.addressLocality }}
+                                            <br> {{ company.addressTown }}
+                                            <br>{{ company.postalCode }}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div id="menu1" class="tab-pane fade">
+            <h4 class="text-center">ACTIVE USERS</h4>
+
+            <div class="col-lg-10 col-md-offset-1">
+                <div class="box">
+
+                    <div id="adminUsers" class="body collapse in">
+                        <div class="table-responsive responsive-table">
+
+                            <table class="table table-responsive responsive-table ">
+                                <thead class="thead-inverse">
+                                    <tr>
+                                        <th>#
+                                            <i class="fa sort"></i>
+                                        </th>
+                                        <th>Phone number</th>
+                                        <th>First Name</th>
+                                        <th>Surname</th>
+                                        <th>RSA Identification</th>
+                                        <th>Email address</th>
+                                        <th>Account Status</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody class="hovering">
+                                    <tr *ngFor="let user of users; let i = index" (click)="viewUser(user)">
+
+                                        <td>{{(1 + i )}}</td>
+                                        <td>{{user.owner.mobile}}</td>
+                                        <td>{{user.owner.firstName}}</td>
+                                        <td>{{user.owner.surname}}</td>
+                                        <td>{{user.owner.rsaId}}</td>
+                                        <td>{{user.owner.email}}</td>
+                                        <td>
+                                            <!-- <button type="button" class="btn btn-primary">view</button> -->
+                                            {{user.status}}
+                                        </td>
+                                    </tr>
+                                </tbody>
+
+                            </table>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div id="menu2" class="tab-pane fade">
+            <h3 class="text-center"> Quotations</h3>
+
+            <div class="col-lg-10 col-md-offset-1">
+                <div class="box">
+
+                    <div id="adminInvoices" class="body collapse in">
+                        <div class="table-responsive responsive-table">
+                            <table class="table responsive-table">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Company Name</th>
+                                        <th>Date Created</th>
+                                        <th>Ref</th>
+                                        <th>Recipient Name</th>
+                                        <th>Recipient Email</th>
+                                        <th>Recipient Phone</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="hovering" >
+                                    <tr *ngFor="let quote of quotes" (click)="viewQuote(quote)">
+                                        <td></td>
+                                        <td>{{"Company Name"}}</td>
+                                        <td>{{quote.generatedDate}}</td>
+                                        <td>{{quote.reference}}</td>
+                                        <td>{{quote.recipientName}}</td>
+                                        <td>{{quote.recipientEmail}}</td>
+                                        <td>{{quote.recipientPhone}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="menu3" class="tab-pane fade">
+            <h3 class="text-center">Invoices</h3>
+
+            <div class="col-lg-10 col-md-offset-1">
+                <div class="box">
+
+                    <div id="adminQuotations" class="body collapse in">
+                        <div class="table-responsive responsive-table">
+                            <table class="table responsive-table">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Company Name</th>
+                                        <th>Date Created</th>
+                                        <th>Ref</th>
+                                        <th>Recipient Name</th>
+                                        <th>Recipient Email</th>
+                                        <th>Recipient Phone</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="hovering">
+                                
+                                    <tr *ngFor="let invoice of invoices" (click)="viewInvoice(invoice)">
+                                        <td></td>
+                                        <td>{{"Company Name"}}</td>
+                                        <td>{{invoice.generatedDate}}</td>
+                                        <td>{{invoice.reference}}</td>
+                                        <td>{{invoice.recipientName}}</td>
+                                        <td>{{invoice.recipientEmail}}</td>
+                                        <td>{{invoice.recipientPhone}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

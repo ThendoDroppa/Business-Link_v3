@@ -1,0 +1,11 @@
+
+.btn{
+    width:100px;
+    /* margin-left: 40px; */
+}
+
+.hovering tr:hover {
+    background: #eae8db;
+    cursor: pointer;
+    color: #fff;     
+}  

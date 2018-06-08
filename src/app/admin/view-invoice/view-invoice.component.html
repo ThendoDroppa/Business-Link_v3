@@ -1,0 +1,265 @@
+<div class="col-md-6 col-md-offset-1 col-sm-12 col-xs-12" *ngIf="loader" id="loading">
+    <img src="./assets/img/loader.gif" id="loading-image">
+    <h4 class="text-center loader-header">Please wait...</h4>
+  </div>
+  <div class="container well">
+    <br><br><br><br><br><br>
+    <div class="box" bgcolor='#e4e4e4' text='#ff6633' link='#666666' vlink='#666666' alink='#ff6633' >
+        
+        <section style='position: relative;clear: both;margin: 5px 0;height: 1px;border-top: 1px solid #cbcbcb;margin-bottom: 5px;margin-top: 5px;text-align: center;'>
+          <h3 align='center' style='margin-top: -12px;background-color: #FFF;clear: both;width: 200px;margin-right: auto;margin-left: auto;padding-left: 15px;padding-right: 15px; font-family: arial,sans-serif;'>
+            <span>INVOICE DETAILS</span>
+          </h3>
+        </section> 
+    
+      <br><br>
+      <table background='' bgcolor='#e4e4e4' width='100%' style='padding:20px 0 20px 0' cellspacing='0' border='0' align='center' cellpadding='0'>
+        <tbody>
+          <tr>
+            <td valign='top' style='color:#404041;line-height:16px;padding:30px 20px 0px 10px'>
+                    
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <table width='620' border='0' align='center' cellpadding='0' cellspacing='0' bgcolor='#FFFFFF' style='border-radius: 5px;'>
+                <tbody>
+                  <tr>
+                    <td>
+                      <table width='620' border='0' cellspacing='0' cellpadding='0' style='border-bottom:solid 1px #e5e5e5'>
+                        <tbody>
+                          <tr>
+                            <td align='left' valign='top' style='padding:0px 5px 0px 5px' >
+                              <table height='20px' width='100%' border='0' cellpadding='0' cellspacing='0'>
+                                <tbody>
+                                  
+                                  <tr>
+                                    <td height='10px' valign='top' style='color:#404041;font-size:13px;padding:5px 5px 0px 20px'>
+                                    </td>
+                                  </tr>
+                                  
+                                  <tr>
+                                    <td valign='top' style='color:#404041;font-size:13px;padding:5px 5px 0px 20px'>
+                                      <strong>Date:</strong>
+                                      {{invoice.generatedDate}}
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </td>
+                            <td align='left' valign='top' style='padding:0px 5px 0px 5px'>
+                              <table height='146' width='100%' border='0' cellpadding='3' cellspacing='3' style='border-right:solid 1px #e5e5e5'>
+                                <tbody>
+                                  <tr>
+                                    <td height='16' valign='top' style='color:#404041;font-size:13px;padding:15px 5px 0px 5px'>
+                                      <strong>Company Address:</strong>
+                                      
+                                    </td>
+                                  </tr>
+                                  <tr >
+                                    <td valign='top' style='color:#404041;font-size:12px;padding:0px 5px 0px 5px'>
+                                    
+                                        {{ company != undefined ? company.addressLine1 : '' }}<br>
+                                        {{ company != undefined ? company.addressLocality : '' }}<br>
+                                        {{ company != undefined ? company.addressTown : '' }}<br>
+                                        {{ company != undefined ? company.postalCode : '' }}<br>
+                                    
+                                  
+                                                                                            
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td height='16' valign='top' style='color:#404041;font-size:13px;padding:0px 5px 0px 5px'>
+                                      <strong>Tel:</strong>
+                                      
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td valign='top' style='color:#404041;font-size:12px;padding:0px 5px 0px 5px'>
+                                      <p>
+                                        <a href='tel:061%937%0266%' value='+27619370266' target='_blank'>{{
+                                            company != undefined ? company.telephone : ''}}</a><br>
+                                      </p>
+                                                                                            
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td height='16' valign='top' style='color:#404041;font-size:13px;padding:0px 5px 0px 5px'>
+                                      <strong>Email:</strong>
+                                      
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td valign='top' style='color:#404041;font-size:12px;padding:0px 5px 0px 5px'>
+                                      <p>
+                                        <a href='mailto:{{company != undefined ? company.email : ""}}'>{{company != undefined ? company.email : ''}}</a><br>
+                                      </p>
+                                                                                            
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </td>
+                            <td align='left' valign='top' style='padding:0px 5px 0px 5px'>
+                              <table height='146' width='100%' border='0' cellpadding='3' cellspacing='3' >
+                                <tbody>
+                                  <tr>
+                                    <td height='16' valign='top' style='color:#404041;font-size:13px;padding:15px 5px 0px 5px'>
+                                      <strong>Recipient Name:</strong>
+                                      
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td valign='top' style='color:#404041;font-size:12px;padding:0px 5px 0px 5px'>
+                                      <p>
+                                        {{invoice.recipientName}}<br>
+                                        <br>
+                                      </p>
+                                                                                            
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </td>
+                            <td align='left' valign='top' style='padding:0px 5px 0px 0px'>
+                              <table height='140' width='100%' border='0' cellpadding='3' cellspacing='3'>
+                                <tbody>
+                                  <tr>
+                                    <td height='16' valign='top' style='color:#404041;font-size:13px;padding:15px 5px 0px 5px'>
+                                      <strong>Recipient Address:</strong>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td valign='top' style='color:#404041;font-size:12px;line-height:16px;padding:0px 5px 0px 5px'>
+                                      <p>
+                                        {{invoice.recipientAddress.addresssLine1}}<br>
+                                        {{invoice.recipientAddress.locality}}<br>
+                                        {{invoice.recipientAddress.city}}<br>
+                                        {{invoice.recipientAddress.postalCode}}<br>
+                                      </p>
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
+                  
+                  <tr>
+                    <td valign='top' style='color:#404041;font-size:12px;line-height:16px;padding:10px 20px 0px 20px'>
+                      <p>
+                        <span><h2 style='color: #848484; font-family: arial,sans-serif; font-weight: 200;'>Quotes Items</h2></span>
+                      </p>
+            
+                    </td>
+                  </tr>
+                
+                  <tr>
+                    <td style='color:#404041;font-size:12px;line-height:16px;padding:10px 16px 20px 18px'>
+                      <table width='100%' border='0' cellpadding='0' cellspacing='0' style='border-radius:5px;border:solid 1px #e5e5e5'>
+                        <tbody>
+                          <tr>
+                            <td>
+                              <table width='580' border='0' cellspacing='0' cellpadding='0'>
+                                <tbody>
+                                  <tr>
+                                    
+                                    <td colspan='5' align='left' valign='top' style='color:#404041;font-size:12px;line-height:16px;padding:5px 10px 3px 5px;border-bottom:solid 1px #e5e5e5'>			
+                                      <strong>Product</strong>
+                                    </td>
+                                    <td width='85' align='left' style='color:#404041;font-size:12px;line-height:16px;padding:5px 10px 3px 5px;border-bottom:solid 1px #e5e5e5'>
+                                      <strong>Price</strong>
+                                    </td>
+                                    <td width='85' align='left' style='color:#404041;font-size:12px;line-height:16px;padding:5px 10px 3px 5px;border-bottom:solid 1px #e5e5e5'>
+                                      <strong>Quantity</strong>
+                                    </td>
+                                    <td width='60' align='left' style='color:#404041;font-size:12px;line-height:16px;padding:5px 10px 3px 5px;border-bottom:solid 1px #e5e5e5'>
+                                      <strong>Total</strong>
+                                    </td>
+                                  </tr>
+                                  <tr *ngFor="let item of invoice.listOfInvoice">
+                                    
+                                    <td colspan='5' align='left' valign='top' style='color:#404041;font-size:12px;line-height:16px;padding:5px 5px 3px 5px;border-bottom:dashed 1px #e5e5e5'>
+                                      {{item.description}} 
+                                    </td>
+                                    <td width='5' align='left' valign='top' style='color:#404041;font-size:12px;line-height:16px;padding:5px 5px 3px 5px;border-bottom:dashed 1px #e5e5e5'>
+                                      {{item.price  |  currency:"R"}} 
+                                    </td>
+                                    <td width='85' align='left' valign='top' style='color:#404041;font-size:12px;line-height:16px;padding:5px 5px 3px 5px;border-bottom:dashed 1px #e5e5e5'>
+                                      {{item.quantity}} 
+                                    </td>
+                                    <td width='60' align='left' valign='top' style='color:#404041;font-size:12px;line-height:16px;padding:5px 5px 3px 5px;border-bottom:dashed 1px #e5e5e5'>
+                                      {{item.quantity * item.price | currency:"R"}}
+                                    </td>
+                                  </tr>
+                                  
+                                  
+                                  <tr>
+                                    <td width='15'> 
+                                    </td>
+                                    <td width='100' align='left' valign='top' style='color:#404041;font-size:12px;padding:10px 0px 0px 5px'>
+                                      <strong>Seller:</strong>
+                                    </td>
+                                    <td colspan='4' align='left' valign='top' width='115' style='color:#ff6600;font-size:12px;padding:10px 5px 0px 5px'>
+                                      <a href='http://company.com' target='_blank'>company.com</a>
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
+                                  
+                  <tr align='left' >
+                    <td style='color:#404041;font-size:12px;line-height:16px;padding:10px 16px 20px 18px'>
+                                    
+                      <table width='0' border='0' align='right' cellpadding='0' cellspacing='0'>
+                        <tbody>
+                          <tr>
+                            <td width='0' align='left' valign='top' style='color:#404041;font-size:12px;line-height:16px;padding:15px 0px 3px 0px'>
+                              <strong>VAT:</strong> 
+                            </td>
+                            <td width='0' align='right' valign='top' style='color:#404041;font-size:12px;line-height:16px;padding:15px 5px 3px 5px'>
+                              {{invoice.salesTax + "%"}}
+                            </td>
+                          </tr>
+                          
+                          <tr>
+                            <td align='left' valign='top' style='color:#404041;font-size:12px;line-height:16px;padding:5px 0px 3px 0px;border-bottom:solid 1px #999999'>
+                              <strong>Discount Amt:</strong>
+                            </td>
+                            <td width='62' align='right' valign='top' style='color:#404041;font-size:12px;line-height:16px;padding:5px 5px 3px 5px;border-bottom:solid 1px #999999'>
+                              {{invoice.discountAmt | currency:"R"}}
+                            </td>
+                          </tr>
+                          <tr>
+                            <td align='left' valign='bottom' style='color:#404041;font-size:13px;line-height:16px;padding:5px 0px 3px 0px'>
+                              <strong>Grand Total:</strong>
+                            </td>
+                            <td width='62' align='right' valign='bottom' style='color:#339933;font-size:13px;line-height:16px;padding:5px 5px 3px 5px'>
+                              <strong>{{ totalAmont() | currency:"ZAR"}}</strong>
+                            </td>
+                          </tr>
+                        </tbody>
+                        
+                        
+                      </table>
+                    </td>
+                  </tr>
+                      
+                </tbody>
+              </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <button type="submit"  class="btn addbtn pull-right" style="background-color: #a6ce6f;" ng-disabled="image == null" (click)="downloadFile()">Download Invoice</button>
+    </div>
+    </div>	
+    

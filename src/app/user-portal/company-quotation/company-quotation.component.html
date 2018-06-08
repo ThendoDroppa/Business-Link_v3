@@ -1,0 +1,64 @@
+<div class="container" id="container1">
+  <div class="row centered-form">
+
+    <div class="panel panel-info">
+      <div style=" background-color: #63bc4c">
+        <div class="panel-heading">
+          <div class="text-center">
+            <p>Company Quotes</p>
+          </div>
+        </div>
+      </div>
+      <div class="panel-body">
+
+        <div class="col-md-12 col-sm-6 col-xs-12 col-lg-12">
+
+
+          <div class="table-responsive responsive-table">
+            <div class="input-group">
+              <span class="input-group-btn">
+                <button class="btn btn-default" type="button">Search </button>
+              </span>
+              <input type="text" class="form-control" style="width:30%" ng-model="expression">
+
+
+
+              <span class="input-group-btn">
+                
+                  <button class="btn btn-primary" type="button" (click)="createQuotes()">Create Quote </button>
+               
+              </span>
+            </div>
+
+            <table class="table table-responsive responsive-table ">
+              <thead class="thead-inverse">
+                <tr>
+                  <th>Reference No</th>
+                  <th>Recipient Name</th>
+                  <th>Recipient Email</th>
+                  <th>Recipient Phone</th>
+                  <th>Actual Recipient</th>
+                </tr>
+              </thead>
+              <tbody  class="hovering">
+                <tr *ngFor="let quote of quotes" (click)="viewCompanyQuote(quote)">
+                  <td></td>
+                  <td>{{"Company Name"}}</td>
+                  <td>{{quote.generatedDate}}</td>
+                  <td>{{quote.reference}}</td>
+                  <td>{{quote.recipientName}}</td>
+                  <td>{{quote.recipientEmail}}</td>
+                  <td>{{quote.recipientPhone}}</td>
+                </tr>
+
+              </tbody>
+
+            </table>
+
+          </div>
+         
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

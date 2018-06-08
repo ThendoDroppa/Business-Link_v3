@@ -1,0 +1,76 @@
+<div class="col-md-6 col-md-offset-1 col-sm-12 col-xs-12" *ngIf="loader" id="loading">
+    <img src="./assets/img/loader.gif" id="loading-image">
+    <h4 class="text-center loader-header">Please wait...</h4>
+</div>
+<div class="container">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+        <div class="row myborder">
+            <form role="form" #userForm="ngForm">
+                <h4 style="color: #63bc4c; margin: initial; margin-bottom: 10px;">Sign Up Now</h4>
+                <hr>
+
+                <div class="input-group margin-bottom-20">
+                    <span class="input-group-addon">
+                        <i class="glyphicon glyphicon-user mycolor"></i>
+                    </span>
+                    <input size="60" required maxlength="255" class="form-control" [(ngModel)]="firstName" placeholder="First Name" #firstname='ngModel'
+                        id="firstname" name="firstname" pattern="[a-zA-Z ]*" type="text">
+                </div>
+                <p *ngIf="firstname.errors && (firstname.dirty || firstname.touched)">
+                    <span [hidden]="!firstname.errors.required" style="color:red;">Enter your firstname</span>
+                </p>
+
+
+                <div class="input-group margin-bottom-20">
+                    <span class="input-group-addon">
+                        <i class="glyphicon glyphicon-user mycolor"></i>
+                    </span>
+                    <input size="60" required maxlength="255" class="form-control" [(ngModel)]="lastname" placeholder="Last Name" name="lastname"
+                        id="lasttname"  #lastName='ngModel' type="text"> 
+                </div>
+                <p *ngIf="lastName.errors && (lastName.dirty || lastName.touched)">
+                    <span [hidden]="!lastName.errors.required" style="color:red;">Enter your firstname</span>
+                </p>
+
+                <div class="input-group margin-bottom-20">
+                    <span class="input-group-addon">
+                        <i class="glyphicon glyphicon-envelope mycolor"></i>
+                    </span>
+                    <input size="60" required maxlength="255" class="form-control" [(ngModel)]="email" placeholder="E-mail" name="UserRegistration[email]"
+                        id="email" type="email" email> </div>
+
+                <div class="input-group margin-bottom-20">
+                    <span class="input-group-addon">
+                        <i class="glyphicon glyphicon-phone mycolor"></i>
+                    </span>
+                    <input size="60" required step="1" maxlength="10" minlength="10" pattern="[0-9]*" class="form-control" [(ngModel)]="contactnumber"
+                        placeholder="Contact Number" name="contactnumber" id="contactnumber" type="tel">
+                </div>
+
+                <div class="input-group margin-bottom-20">
+                    <span class="input-group-addon" (click)="showPassword()">
+                        <i class="{{ passwordEye }} mycolor"></i>
+                    </span>
+                    <input type="{{passwordType}}" required maxlength="255" class="form-control" [(ngModel)]="password" placeholder="Password"
+                        name="password" #pwd_='ngModel' minlength="6" id="password">
+                </div>
+                <!-- <div class="input-group margin-bottom-20">
+                    <span class="input-group-addon">
+                        <i class="glyphicon glyphicon-lock mycolor"></i>
+                    </span>
+                    <input size="60" maxlength="255" class="form-control" [(ngModel)]="confirmPassword" placeholder="ConfirmPassword" name="UserRegistration[confirmPassword]"
+                        id="UserRegistration_confirmPassword" type="text"> </div> -->
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <button class="btn-u pull-left" [disabled]="!userForm.form.valid" type="submit" (click)="register()">Register</button>
+                    </div>
+
+                </div>
+                <h5 class="text-center" style="padding-top:3px !important;">{{error}}</h5>
+            </form>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+</div>

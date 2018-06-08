@@ -1,0 +1,72 @@
+.container{
+    padding-top:40px;
+}
+i{
+    color:#63bc4c;
+}
+input{
+    border: 1px solid #63bc4c;
+}
+.panel-heading{
+    background-color: #a6ce6f !important;
+    
+}
+.titles{
+background-color: #a6ce6f !important;
+color: #fff !important;
+}
+#container {
+    padding: 15px;
+}
+
+.invoice-title h2, .invoice-title h3 {
+display: inline-block;
+}
+
+.table > tbody > tr > .no-line {
+border-top: none;
+}
+
+.table > thead > tr > .no-line {
+border-bottom: none;
+}
+
+.table > tbody > tr > .thick-line {
+border-top: 2px solid;
+}
+.panel-sizing{
+/*height: 370px;*/
+}
+.downloadbtn{
+background-color: #a6ce6f;
+}
+
+#loading {
+    width: 85%;
+    height: 100%;
+    top:0;
+    left:0;
+    right: -30;
+    position: fixed;
+    display: block;
+    opacity: 0.7;
+    background-color: #fff;
+    z-index: 99;
+    text-align: center;
+ }
+ 
+ #loading-image {
+   position: absolute;
+   top: 290px;
+   left: 540px;
+   z-index: 100;
+ }
+
+ .loader-header {
+   color:#000;
+   
+
+   position: absolute;
+   top: 350px;
+   left: 520px;
+ }

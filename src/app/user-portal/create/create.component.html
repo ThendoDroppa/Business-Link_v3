@@ -1,0 +1,243 @@
+<!-- <app-nav-bar-dashboard></app-nav-bar-dashboard> -->
+<div class="container wrapper-container">
+
+  <div class="container-fluid" ng-hide="loader == false">
+    <div class="col-md-7 col-md-offset-0" id="loading">
+      <!-- <img src="assets/img/LOGO.png" id="loading-image"> -->
+    </div>
+  </div>
+  <div class="well">
+    <form class="form-group" name="myForm">
+      <div class="row">
+
+        <div class="col-md-12 col-sm-6 col-xs-12 col-lg-12">
+
+          <div class="row">
+
+            <div class="col-md-5 col-sm-5 col-xs-12 col-md-offset-1">
+
+
+
+              <div class="panel panel-info info-panel">
+                <div style="background-color:#63bc4c">
+                  <div class="panel-heading">
+                    <div class="text-center">
+                      Company Profile
+                    </div>
+                  </div>
+                </div>
+                <div class="panel-body">
+
+                  <div class="form-group">
+                    <img src="{{company.base64Logo}}" class="image rounded mx-auto d-block photo" alt="...">
+                  </div>
+                  <div class="form-group">
+                    <label class="alignLabel">Name</label>:
+                    <label>{{ company.companyName }}</label>
+                  </div>
+                  <div class="form-group">
+                    <label class="alignLabel">Director</label>:
+                    <label>{{ company.director }}</label>
+                  </div>
+                  <div class="form-group">
+                    <label class="alignLabel">Email</label>:
+                    <label>{{ company.email }}</label>
+                  </div>
+                  <div class="form-group">
+                    <label class="alignLabel">Telephone</label>:
+                    <label>{{ company.telephone }}</label>
+                  </div>
+                  <div class="form-group">
+                    <label class="alignLabel">Address</label>:
+                    <label>{{ company.addressLine1+", "+company.addressLocality+", "+company.addressTown+", "+company.postalCode
+                      }}</label>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="alignLabel">Company Reg</label>:
+                    <label>{{ company.companyRegistrationNo }}</label>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-5 col-sm-5 col-xs-12">
+              <div class="panel panel-info">
+
+                <div style="background-color:#63bc4c">
+                  <div class="panel-heading">
+                    <div class="text-center">
+                      Invoice & Quotation Info
+                    </div>
+                  </div>
+                </div>
+
+                <div class="panel-body">
+                  <form class="form-group">
+
+                    <div class="form-group input-group">
+                      <span class="input-group-addon">
+                        <i class="glyphicon glyphicon-user"></i>
+                      </span>
+                      <input type="text" class="form-control c" size="60" maxlength="255" [(ngModel)]="receipentName" name="name" id="receipentname"
+                        placeholder="Recipient Name" name="receipentname" pattern="[a-zA-Z ]*" #receipentname='ngModel' required>
+                    </div>
+                    <p *ngIf="receipentname.errors && (receipentname.dirty || receipentname.touched)">
+                      <span [hidden]="!receipentname.errors.required" style="color:red;">Enter your receipent name</span>
+                    </p>
+
+                    
+                    <div class="form-group input-group">
+                      <span class="input-group-addon">
+                        <i class="glyphicon glyphicon-envelope"></i>
+                      </span>
+                      <input type="email" class="form-control c"size="60" maxlength="255"   name="email" required [(ngModel)]="email" id="autocomplete2" placeholder="Recipient Email Address"
+                      required >
+                    </div>
+
+
+                    <div class="form-group input-group">
+                      <span class="input-group-addon">
+                        <i class="glyphicon glyphicon-phone" aria-hidden="true"></i>
+                      </span>
+                      <input type="tel" class="form-control" name="phone" [(ngModel)]="phone" id="phone"  placeholder="Recipient Phone Number" size="60" required step="1" maxlength="10" minlength="10" pattern="[0-9]*"  required >
+                    </div>
+
+                    <div class="form-group input-group">
+                      <span class="input-group-addon">
+                        <i class="	glyphicon glyphicon-info-sign" aria-hidden="true"></i>
+                      </span>
+                      <input type="text" class="form-control" name="ref" [(ngModel)]="ref" id="mytext"  required placeholder="Enter the reference number">
+                    </div>
+
+                    <p style="color:#000;">Address may be blank if not applicable(Optional)</p>
+                    <div class="form-group input-group">
+                      <span class="input-group-addon">
+                        <i class="glyphicon glyphicon-home"></i>
+                      </span>
+                      <input type="text" class="form-control rap" name="address" [(ngModel)]="address" placeholder="Address line 1(Optional).">
+                      <input type="text" class="form-control rap" name="addressLocalty" [(ngModel)]="addressLocalty" placeholder="Address locality(Optional).">
+                      <input type="text" class="form-control rap" name="addressCity" [(ngModel)]="addressCity" placeholder="Address City(Optional).">
+                      <input type="text" class="form-control rap" name="addressCode" [(ngModel)]="addressCode" style="width:220px" placeholder="Address Postal code(Optional)."
+                      size="60" required step="1" maxlength="4" minlength="4" pattern="[0-9]*" required>
+                    </div>
+
+                  </form>
+
+                </div>
+              </div>
+
+
+            </div>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+      <div class="col-md-10 col-sm-10 col-xs-12 col-md-offset-1" style="color:red">
+
+        <p class="pull-right" style="color:red"></p>
+      </div>
+      <br>
+    </form>
+
+    <div class="row items">
+
+      <div class="col-md-10 col-sm-10 col-xs-12 col-md-offset-1">
+        <h5>
+          <strong>Add Line Item:</strong>
+        </h5>
+        <div class="panel panel-info">
+          <div class="panel-body">
+            <form class="form-inline" name="itemForm">
+              <div class="form-group">
+                <label for="description">Description:</label>
+                <input type="text" required [(ngModel)]="description" name="description" required class="form-control description" id="description">
+              </div>
+              <div class="form-group" ng-class="">
+                <label for="price">Price Per Item:</label>
+                <input type="number" required class="form-control price" name="price" [(ngModel)]="price" id="price">
+                <span ng-show="itemForm.price.$invalid"></span>
+              </div>
+              <div class="form-group">
+                <label for="qty">Quantity:</label>
+                <input type="number" required [(ngModel)]="qty" name="qty" ng-pattern="/^[0-9]+([,.][0-9]+)?$/" class="form-control qty"
+                  id="qty">
+              </div>
+
+              <div class="form-group">
+                <button type="button" (click)="addItem()" class="btn addbtn">Add</button>
+              </div>
+
+            </form>
+
+            <div class="table-responsive responsive-table">
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Description</th>
+                    <th>Price</th>
+                    <th>Qty</th>
+                    <th>Total</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of list; let i = index">
+                    <td>{{ i + 1}}</td>
+                    <td>{{ item.description }}</td>
+                    <td>{{ item.price }}</td>
+                    <td>{{ item.quantity }}</td>
+                    <td>{{ item.price * item.quantity | currency:"ZAR" }}</td>
+                    <td id="myButton">
+                      <button type="button" class="btn btn-danger deleteBtn" (click)="delete(item, i)">Delete</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+
+            <form class="form-inline" ng-hide="list.length == 0">
+
+              <div class="form-group pull-right" style="padding-right:62px;">
+                <label for="tax">VAT %:</label>
+                <input ng-disabled="disableButton" placeholder="VAT" type="number" class="form-control tax" name="tax" ng-pattern="/^[0-9]+([,.][0-9]+)?$/"
+                  [(ngModel)]="tax" id="tax" required (ngModelChange)="onTaxChange(tax)" />
+              </div>
+              <br>
+              <br>
+
+              <div class="form-group pull-right" style="padding-right:62px;">
+                <label for="discount">Discount Amount:</label>
+                <input type="number" placeholder="Discount Amount" class="form-control discount" name="discount" [(ngModel)]="discount" (ngModelChange)="onDiscountChange(discount)"
+                  id="discount" required />
+              </div>
+
+              <br>
+              <br>
+              <div class="form-group pull-right" style="padding-right:62px;">
+                <label for="discount">Total Amount:</label>
+                <strong>{{total | currency:"ZAR"}}</strong>
+              </div>
+
+              <br>
+              <br>
+
+              <div class="form-group pull-right" style="padding-right:62px;">
+                <button type="button" class="btn addbtn" (click)="reviewInvoice()">Review</button>
+              </div>
+
+            </form>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
