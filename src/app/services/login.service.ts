@@ -68,7 +68,7 @@ export class LoginService {
 
   }
 
-  
+
   companyInfo(company: any, token: string): Observable<any> {
 
     var object = JSON.parse(localStorage.getItem('userData'));
@@ -126,7 +126,7 @@ export class LoginService {
 
 
 
-  
+
   login(password, email): Observable<any> {
     var pass = password.split('');
     var login = {
@@ -137,7 +137,7 @@ export class LoginService {
       { headers: new HttpHeaders().set("Accept", 'application/json').set('Content-Type', 'application/json') });
   }
 
-  
+
 
   uploadDocs(idObject, cpicObject, diskObject, token): Observable<any> {
 
@@ -221,5 +221,7 @@ export class LoginService {
     let options = new RequestOptions({ headers: headers });
     return this.http.post(this.sharedService.getUrl() + "sessions/reset/pwd/" + email, '', options)
   }
-  
+
+
+
 }

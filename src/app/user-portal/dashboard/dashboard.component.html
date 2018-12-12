@@ -1,3 +1,8 @@
+<div class="col-md-12 col-md-offset-1 col-sm-12 col-xs-12" *ngIf="loader" id="loading">
+  <img src="./assets/img/loader.gif" id="loading-image">
+  <h4 class="text-center loader-header">Please wait...</h4>
+</div>
+
 <div class="container" id="wrapper">
   <!-- Page Content -->
 
@@ -11,16 +16,18 @@
     </div>
 
     <div class="well col-md-8 col-sm-8 col-md-offset-2" id="companyDetails">
-      <!-- <div class="col-md-3 col-md-offset-3">
+      <div class="col-md-3">
         <a class="thumbnail">
-          <img style="height:171px;width:180;" class="image rounded mx-auto d-block" />
+          <img src="{{image  == null ? avator : 'data:image/jpg;base64,'+ image }}" class="image rounded mx-auto d-block img-responsive"
+            style="height: 180px;width: 200px">
+          <!-- <img src="assets/img/userProfile.png" class="image rounded mx-auto d-block img-responsive" /> -->
         </a>
         <div class="text-center" style="color:#1b75bb">
           <h5>Company Logo</h5>
         </div>
-      </div> -->
+      </div>
 
-      <div class=" col-md-5 col-sm-5 col-md-offset-1">
+      <div class=" col-md-9 col-sm-9">
         <div class="heading">
           <strong>Account Details</strong>
         </div>
@@ -73,7 +80,7 @@
 
             <span class="input-group-btn">
 
-              <button class="btn btn-primary" type="button" (click)="addCompany()">Add Company</button>
+              <button class="btn btn-primary" type="button" (click)="addCompany(company)">Add Company</button>
 
             </span>
           </div>

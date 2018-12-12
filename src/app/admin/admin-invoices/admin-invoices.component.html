@@ -7,7 +7,7 @@
             <header>
                 <div class="toolbar">
                     <div class="btn-group">
-                        <a href="{{url}}#optionalTable" data-toggle="collapse" class="btn btn-default btn-sm minimize-box">
+                        <a href="#optionalTable" data-toggle="collapse" class="btn btn-default btn-sm minimize-box">
                             <i class="fa fa-angle-up"></i>
                         </a>
                         <a class="btn btn-danger btn-sm close-box"><i class="fa fa-times"></i></a>
@@ -19,7 +19,7 @@
                 <table class="table responsive-table">
                     <thead>
                         <tr>
-                            <th>#</th>
+                         
                             <th>Company Name</th>
                             <th>Date Created</th>
                             <th>Ref</th>
@@ -30,7 +30,7 @@
                     </thead>
                     <tbody class="hovering">
                         <tr ng-repeat="invoice in invoices"  ng-click="viewInvoice(invoice)">
-                            <td>{{1 + $index}}</td>
+                            
                             <td>{{"Company Name"}}</td>
                             <td>{{invoice.generatedDate}}</td>
                             <td>{{invoice.reference}}</td>

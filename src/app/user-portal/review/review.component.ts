@@ -44,7 +44,7 @@ export class ReviewComponent implements OnInit {
   accountNo: string;
   branch: string;
   resp: any;
-
+  total: any;
   // createInvoice: any;
 
   //style: any;

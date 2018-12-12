@@ -25,7 +25,16 @@ export class DashboardComponent implements OnInit {
   companies: any = [];
   invoices: any = [];
   quotes: any = [];
-
+  company: any;
+  msg: string;
+  userToken: any;
+  fileSize: any;
+  base64DISC: string
+  image: string = null;
+  avator: string = 'assets\\img\\userProfile.png';
+  file: any;
+  loader: any;
+  // assets/img/userProfile.png"
 
   constructor(private userPortal: UserPortalService, private route: Router) {
 
@@ -34,11 +43,13 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
 
     this.userPortalObj = JSON.parse(localStorage.getItem('userInfo'));
+    this.userToken = JSON.parse(localStorage.getItem('userInfo')).token;
     this.userPortal.getCompanyInfor(this.userPortalObj.token, this.userPortalObj.owner.oid).subscribe(
       (res) => {
         this.companies = res;
       }
     )
+    this.getProfilePicture()
   }
 
 
@@ -60,6 +71,19 @@ export class DashboardComponent implements OnInit {
     this.route.navigateByUrl('/addCompany');
 
   }
+
+  public getProfilePicture() {
+    this.loader = true;
+        this.userPortal.getProfilePic(JSON.parse(localStorage.getItem('userInfo')).owner.oid, this.userToken).subscribe(
+          (res: any) => {
+            this.image = res.base64Image;
+            console.log( this.image)
+            this.loader = false;
+          }, (error) => {
+            this.loader = false;
+          }
+        )
+      }
 
   
 

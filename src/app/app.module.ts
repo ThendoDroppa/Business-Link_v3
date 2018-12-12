@@ -50,6 +50,7 @@ import { ViewCompanyQuoteComponent } from './user-portal/view-quote/view-quote.c
 import { OnlyLoggedInUsersGuard } from './guards/onlyLoggedIn.guard';
 import { AlwaysAuthGuard } from './guards/alwaysAuth.guard';
 import { UserLoggInService } from './services/loggedInUser.service';
+import { MainComponent } from './main/main.component';
 
 
 @NgModule({
@@ -85,7 +86,8 @@ import { UserLoggInService } from './services/loggedInUser.service';
     ViewQuoteComponent,
     AddCompanyComponent,
     ViewCompanyInvoiceComponent,
-    ViewCompanyQuoteComponent
+    ViewCompanyQuoteComponent,
+    MainComponent
 
 
 
