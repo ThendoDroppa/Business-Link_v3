@@ -36,7 +36,7 @@ import { ForgotPasswordComponent } from './login/forgot-password/forgot-password
 import { HomeNavigateComponent } from './home/home-navigate/home-navigate.component';
 import { UserHomeComponent } from './user-portal/user-home/user-home.component';
 import { AdminHomeComponent } from './admin/admin-home/admin-home.component';
-import { NotFoundComponent } from './home/404/404.component'
+import { NotFoundComponent } from './home/404/404.component';
 import { ViewCompanyComponent } from './admin/view-company/view-company.component';
 import { ViewUserComponent } from './admin/view-user/view-user.component';
 import { ViewInvoiceComponent } from './admin/view-invoice/view-invoice.component';
@@ -51,7 +51,6 @@ import { OnlyLoggedInUsersGuard } from './guards/onlyLoggedIn.guard';
 import { AlwaysAuthGuard } from './guards/alwaysAuth.guard';
 import { UserLoggInService } from './services/loggedInUser.service';
 import { MainComponent } from './main/main.component';
-
 
 @NgModule({
   declarations: [
@@ -96,7 +95,7 @@ import { MainComponent } from './main/main.component';
   imports: [
     BrowserModule, routing, RouterModule, FormsModule, HttpClientModule, HttpModule,
   ],
-  providers: [LoginService, SharedService, AdminService, UserPortalService,AlwaysAuthGuard, UserLoggInService, OnlyLoggedInUsersGuard ],
+  providers: [LoginService, SharedService, AdminService, UserPortalService, AlwaysAuthGuard, UserLoggInService, OnlyLoggedInUsersGuard ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -14,8 +14,9 @@
                     <span class="input-group-addon">
                         <i class="glyphicon glyphicon-user mycolor"></i>
                     </span>
-                    <input size="60" required maxlength="255" class="form-control" [(ngModel)]="firstName" placeholder="First Name" #firstname='ngModel'
-                        id="firstname" name="firstname" pattern="[a-zA-Z ]*" type="text">
+                    <input size="60" required maxlength="255" class="form-control" [(ngModel)]="firstName"
+                        placeholder="First Name" #firstname='ngModel' id="firstname" name="firstname"
+                        pattern="[a-zA-Z ]*" type="text">
                 </div>
                 <p *ngIf="firstname.errors && (firstname.dirty || firstname.touched)">
                     <span [hidden]="!firstname.errors.required" style="color:red;">Enter your firstname</span>
@@ -26,8 +27,8 @@
                     <span class="input-group-addon">
                         <i class="glyphicon glyphicon-user mycolor"></i>
                     </span>
-                    <input size="60" required maxlength="255" class="form-control" [(ngModel)]="lastname" placeholder="Last Name" name="lastname"
-                        id="lasttname"  #lastName='ngModel' type="text"> 
+                    <input size="60" required maxlength="255" class="form-control" [(ngModel)]="lastname"
+                        placeholder="Last Name" name="lastname" id="lasttname" #lastName='ngModel' type="text">
                 </div>
                 <p *ngIf="lastName.errors && (lastName.dirty || lastName.touched)">
                     <span [hidden]="!lastName.errors.required" style="color:red;">Enter your firstname</span>
@@ -37,23 +38,25 @@
                     <span class="input-group-addon">
                         <i class="glyphicon glyphicon-envelope mycolor"></i>
                     </span>
-                    <input size="60" required maxlength="255" class="form-control" [(ngModel)]="email" placeholder="E-mail" name="UserRegistration[email]"
-                        id="email" type="email" email> </div>
+                    <input size="60" required maxlength="255" class="form-control" [(ngModel)]="email"
+                        placeholder="E-mail" name="UserRegistration[email]" id="email" type="email" email>
+                </div>
 
                 <div class="input-group margin-bottom-20">
                     <span class="input-group-addon">
                         <i class="glyphicon glyphicon-phone mycolor"></i>
                     </span>
-                    <input size="60" required step="1" maxlength="10" minlength="10" pattern="[0-9]*" class="form-control" [(ngModel)]="contactnumber"
-                        placeholder="Contact Number" name="contactnumber" id="contactnumber" type="tel">
+                    <input size="60" required step="1" maxlength="10" minlength="10" pattern="[0-9]*"
+                        class="form-control" [(ngModel)]="contactnumber" placeholder="Contact Number"
+                        name="contactnumber" id="contactnumber" type="tel">
                 </div>
 
                 <div class="input-group margin-bottom-20">
                     <span class="input-group-addon" (click)="showPassword()">
                         <i class="{{ passwordEye }} mycolor"></i>
                     </span>
-                    <input type="{{passwordType}}" required maxlength="255" class="form-control" [(ngModel)]="password" placeholder="Password"
-                        name="password" #pwd_='ngModel' minlength="6" id="password">
+                    <input type="{{passwordType}}" required maxlength="255" class="form-control" [(ngModel)]="password"
+                        placeholder="Password" name="password" #pwd_='ngModel' minlength="6" id="password">
                 </div>
                 <!-- <div class="input-group margin-bottom-20">
                     <span class="input-group-addon">

@@ -16,10 +16,10 @@ export class ViewUserComponent implements OnInit {
   txt : string = "";
   //btnText: string = "Unknown"
 
-  constructor(private admin : AdminService) { 
+  constructor(private admin: AdminService) {
     this.user = JSON.parse(localStorage.getItem('user'));
     this.userPortalObj =  JSON.parse(localStorage.getItem('userInfo'));
-    this.fullName = this.user.owner.surname + " "+this.user.owner.firstName;
+    this.fullName = this.user.owner.surname + ' ' + this.user.owner.firstName;
   }
 
   ngOnInit() {

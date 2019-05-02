@@ -16,7 +16,6 @@ import { AddCompanyComponent } from '../user-portal/add-company/add-company.comp
 import { ViewCompanyInvoiceComponent } from '../user-portal/view-invoice/view-invoice.component';
 import { ViewCompanyQuoteComponent } from '../user-portal/view-quote/view-quote.component';
 
-
 export const THIRD_ROUTES: Routes = [
     { path: '', component: HomeComponent },
     { path: 'dashboard', component: DashboardComponent, canActivate: [OnlyLoggedInUsersGuard, AlwaysAuthGuard]},

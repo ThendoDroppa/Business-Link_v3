@@ -10,46 +10,45 @@ a{
 }
 
 .page-header{
-   
     color: #63bc4c;
 }
 .container{
-padding-top:20px;
+    padding-top:20px;
 }
-/* .myList{
+
+.myList{
     width: 40%;
-} */
+    padding-left: 62px;
+}
 @media (max-width: 767px) {
 
-
-      #companyDetails[_ngcontent-c2] {
+    #companyDetails[_ngcontent-c2] {
         height: 390px !important;
     }
-    .myList{ 
+    /* .myList{ 
         padding-left: 62px;
-    }
+    } */
     .heading{
         padding-left: 40px;
     }
     
 }
-.table-head{
+.table-head {
     border-radius: 4px 4px 4px 4px;
     font-size: 15px;
     /* opacity: 0.5;
     filter: alpha(opacity=10);  */
     /* background-color: #497ba1; */
 }
-.table-heading{
+.table-heading {
     background-color: #63bc4c;
     height: 40px;
     border-radius: 4px 4px 4px 4px;
 }
-.heading{
+.heading {
    color:#1b75bb;
    font-size:20px;
 }
-
 
 #loading {
     width: 85%;

@@ -72,7 +72,6 @@ export class UserPortalService {
             "owner": user.owner.oid
         };
 
-
         var token = "Bearer " + user.token;
         console.log(token);
         return this.httpClient.post(this.sharedService.getUrl() + "parties/company/invoice/create", companyData,
@@ -80,9 +79,6 @@ export class UserPortalService {
                 headers: new HttpHeaders().set("Accept", 'application/json').
                     set('Content-Type', 'application/json').set('Authorization', token)
             });
-
-
-
     }
 
     public downloadQuote(quoteData: any, userToken) {

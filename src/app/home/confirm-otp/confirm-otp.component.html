@@ -12,11 +12,11 @@ br><br>
                 <i class="fa fa-lock fa-4x" style="color: #007299;"></i>
               </h3>
               <h3 class="text-center" style="color: #007299;">Confirm
-                <strong> Droppa</strong> Account</h3>
+                <strong> Bill-Instant</strong> Account</h3>
               <p>Enter The OTP recieved to SMS.</p>
               <div class="panel-body">
 
-                <form class="form" name="form"  #otpForm="ngForm" (ngSubmit)="onSubmit()">
+                <form class="form" name="form" >
                   <fieldset>
                     <div class="form-group">
                       <div class="input-group">
@@ -27,18 +27,18 @@ br><br>
                         <input id="emailInput" required step="1" maxlength="4" minlength="4"
                          pattern="[0-9]*" name="otp" placeholder="Enter the OTP "
                           class="form-control" type="text" [(ngModel)]="otp"
-                          #otpNo='ngModel' />
+                          #otpNo='ngModel'>
 
                       </div> 
                     </div>
                     <p [hidden]="otpNo.valid || otpNo.pristine" style="color:#990000;">Enter valid OTP code</p>
                     <div class="form-group">
-                      <button type="submit" [disabled]="!otpForm.form.valid" class="btn btn-info btn-lg" style="width:135px; margin-top:10px;">Submit</button>
+                      <button (click)="onSubmit()" class="btn btn-info btn-lg" style="width:135px; margin-top:10px;">Submit</button>
                     </div>
                   </fieldset>
                 </form>
                 <div>
-                  <h5 id="passState" style="color: #007299;">{{error+''+success}}</h5>
+                  <h5 id="passState" style="color: #007299;">{{error + '' + success}}</h5>
                 </div>
               </div>
             </div>

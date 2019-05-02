@@ -54,7 +54,6 @@ export class CreateComponent implements OnInit {
   ngOnInit() {
     this.company = JSON.parse(localStorage.getItem('CompanyQuote'))
     this.userPortalObj = JSON.parse(localStorage.getItem('userInfo'));
-
   }
 
 
@@ -258,7 +257,6 @@ public totalAmont (){
   public check(object){
 		var value = false;
 		for (var i = 0; i < this.list.length; i++) {
-			
 			if(this.list[i].description == object){
 				value = true;
 				break;

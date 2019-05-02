@@ -4,14 +4,11 @@ import { Router } from '@angular/router';
 import { UserPortalService } from '../../services/userPortal.service';
 import { Company } from '../../models/company';
 
-
-
 @Component({
   selector: 'app-add-company',
   templateUrl: './add-company.component.html',
   styleUrls: ['./add-company.component.css']
 })
-
 
 export class AddCompanyComponent implements OnInit {
 
@@ -45,11 +42,7 @@ export class AddCompanyComponent implements OnInit {
     this.userToken = JSON.parse(localStorage.getItem('userInfo')).token;
   }
 
-
-
-
   public addNewCompany() {
-
     this.loader = true;
     this.company = new Company(this.directorName, this.telephone, this.companyName, this.addressLine1,
     this.addressLocality, this.addressTown, this.postalCode, this.companyRegistrationNo, this.Companyemail);

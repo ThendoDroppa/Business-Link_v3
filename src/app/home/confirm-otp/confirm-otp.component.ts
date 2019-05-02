@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
 import { ActivatedRoute } from '@angular/router';
 import { Response } from '@angular/http';
-
 import { LoginService } from '../../services/login.service';
 
 @Component({
@@ -16,8 +14,8 @@ export class ConfirmOtpComponent implements OnInit {
   otp: number;
   sub: any;
   oid: string;
-  error: string = '';
-  success: string = '';
+  error = '';
+  success = '';
 
   constructor(private route: ActivatedRoute, private loginService: LoginService) { }
 
@@ -29,28 +27,30 @@ export class ConfirmOtpComponent implements OnInit {
   }
 
   onSubmit() {
-    //activate(code, verificationCode, email)
+    // activate(code, verificationCode, email)
     this.error = '';
     this.success = '';
 
-    this.loginService.activate(this.otp, this.oid, this.email)
+    this.loginService.activate(this.email, this.oid, this.otp)
       .subscribe(
       (response: Response) => {
-        if (response.status == 200) {
+        if (response.status === 200) {
           if (response.json().confirmed) {
-            this.success = "Your account is activated successful.";
+            this.success = 'Your account is activated successful.';
+            console.log(this.success);
           } else {
-            this.error = "Account not active, verify the code.";
+            this.error = 'Account not active, verify the code.';
+            console.log(this.error);
           }
         } else {
-          this.error = "Error occured, please contact Droppa Team.";
+          this.error = 'Error occured, please contact Droppa Team.';
         }
       },
       (err) => {
-        this.error = "Error occured, please contact Droppa Team.";
+        console.log(err);
+        this.error = 'Error occured, please contact Droppa Team.';
       }
       );
     // alert("OTP Code : "+this.otp +" Email:"+this.email +" oid "+this.oid);
   }
-
 }

@@ -1,8 +1,8 @@
 <!-- <app-nav-bar-dashboard></app-nav-bar-dashboard> -->
 <div id="menu3" class="tab-pane fade">
-  <h3 class="text-center">Invoices</h3>
+    <h3 class="text-center">Invoices</h3>
 
-       <div class="col-lg-10 col-md-offset-1">
+    <div class="col-lg-10 col-md-offset-1">
         <div class="box">
             <header>
                 <div class="toolbar">
@@ -15,34 +15,32 @@
                 </div>
             </header>
             <div id="optionalTable" class="body collapse in">
-               <div class="table-responsive responsive-table">
-                <table class="table responsive-table">
-                    <thead>
-                        <tr>
-                         
-                            <th>Company Name</th>
-                            <th>Date Created</th>
-                            <th>Ref</th>
-                            <th>Recipient Name</th>
-                            <th>Recipient Email</th>
-                            <th>Recipient Phone</th>
-                        </tr>
-                    </thead>
-                    <tbody class="hovering">
-                        <tr ng-repeat="invoice in invoices"  ng-click="viewInvoice(invoice)">
-                            
-                            <td>{{"Company Name"}}</td>
-                            <td>{{invoice.generatedDate}}</td>
-                            <td>{{invoice.reference}}</td>
-                            <td>{{invoice.recipientName}}</td>
-                            <td>{{invoice.recipientEmail}}</td>
-                            <td>{{invoice.recipientPhone}}</td>
-                        </tr>
-                    </tbody>
-                 </table>
-                 </div>
+                <div class="table-responsive responsive-table">
+                    <table class="table responsive-table">
+                        <thead>
+                            <tr>
+                                <th>Company Name</th>
+                                <th>Date Created</th>
+                                <th>Ref</th>
+                                <th>Recipient Name</th>
+                                <th>Recipient Email</th>
+                                <th>Recipient Phone</th>
+                            </tr>
+                        </thead>
+                        <tbody class="hovering">
+                            <tr ng-repeat="invoice in invoices" ng-click="viewInvoice(invoice)">
+                                <td>{{"Company Name"}}</td>
+                                <td>{{invoice.generatedDate}}</td>
+                                <td>{{invoice.reference}}</td>
+                                <td>{{invoice.recipientName}}</td>
+                                <td>{{invoice.recipientEmail}}</td>
+                                <td>{{invoice.recipientPhone}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
-  
+
 </div>

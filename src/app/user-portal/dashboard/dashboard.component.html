@@ -18,42 +18,42 @@
     <div class="well col-md-8 col-sm-8 col-md-offset-2" id="companyDetails">
       <div class="col-md-3">
         <a class="thumbnail">
-          <img src="{{image  == null ? avator : 'data:image/jpg;base64,'+ image }}" class="image rounded mx-auto d-block img-responsive"
-            style="height: 180px;width: 200px">
+          <img src="assets/img/userProfile.png" class="image rounded mx-auto d-block img-responsive" style="height: 180px; width: 200px">
           <!-- <img src="assets/img/userProfile.png" class="image rounded mx-auto d-block img-responsive" /> -->
+          <!-- img src="{{image  == null ? avator : 'data:image/jpg;base64,'+ image }}" -->
         </a>
         <div class="text-center" style="color:#1b75bb">
           <h5>Company Logo</h5>
         </div>
       </div>
 
-      <div class=" col-md-9 col-sm-9">
+      <div class="col-md-9 col-sm-9 col-md-6 col-sm-6">
         <div class="heading">
           <strong>Account Details</strong>
         </div>
 
-        <div class="myList col-md-12 col-sm-12 col-md-offset-0" style="padding-top:20px">
+        <div class="col-md-9 col-sm-9 col-md-offset-0" style="padding-top:20px">
           <tr>
             <td>
-              <label> First Name : </label>{{userPortalObj.owner.firstName}}
+              <label>First Name: </label>{{userPortalObj.owner.firstName}}
             </td>
           </tr>
 
           <tr>
             <td>
-              <label> Last Name : </label>{{userPortalObj.owner.surname}}
+              <label>Last Name: </label>{{userPortalObj.owner.surname}}
             </td>
           </tr>
 
           <tr>
             <td>
-              <label> E-mail : </label>{{userPortalObj.owner.email}}
+              <label>E-mail: </label>{{userPortalObj.owner.email}}
             </td>
           </tr>
 
           <tr>
             <td>
-              <label> Contact Number : </label>{{userPortalObj.owner.mobile}}
+              <label>Contact Number: </label>{{userPortalObj.owner.mobile}}
             </td>
           </tr>
 
@@ -75,13 +75,8 @@
               <button class="btn btn-default" type="button">Search </button>
             </span>
             <input type="text" class="form-control" style="width:30%" ng-model="expression">
-
-
-
             <span class="input-group-btn">
-
               <button class="btn btn-primary" type="button" (click)="addCompany(company)">Add Company</button>
-
             </span>
           </div>
           <table class="table table-responsive responsive-table ">

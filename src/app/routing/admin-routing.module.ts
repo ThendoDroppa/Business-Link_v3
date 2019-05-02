@@ -12,7 +12,6 @@ import { ViewUserComponent } from '../admin/view-user/view-user.component';
 import { ViewInvoiceComponent } from '../admin/view-invoice/view-invoice.component';
 import { ViewQuoteComponent } from '../admin/view-quote/view-quote.component';
 
-
 export const SECOND_ROUTES : Routes = [
     { path : '', component : HomeComponent},
     { path : 'admin', component : AdminComponent, canActivate: [OnlyLoggedInUsersGuard, AlwaysAuthGuard]},

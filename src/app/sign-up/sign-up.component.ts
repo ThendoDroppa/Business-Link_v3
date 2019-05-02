@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Response } from '@angular/http';
 import { Subscription } from 'rxjs/Subscription';
 import { Router } from '@angular/router';
-import 'rxjs/Rx';
+// import 'rxjs/Rx';
+import { Observable } from 'rxjs/Observable';
 import { NgForm } from '@angular/forms';
 
 import { User } from '../models/user';
@@ -21,7 +22,6 @@ export class SignUpComponent implements OnInit {
   public toggleEye: boolean = false;
   public passwordType: string = 'password';
 
-
   // @ViewChild('userForm') signupForm: NgForm;
   loader: boolean = false;
   firstName: string;
@@ -33,8 +33,7 @@ export class SignUpComponent implements OnInit {
   login: Login;
   error: string;
 
-  constructor(private loginService: LoginService,
-    private route: Router) { }
+  constructor(private loginService: LoginService, private route: Router) { }
 
   ngOnInit() {
   }
@@ -47,18 +46,16 @@ export class SignUpComponent implements OnInit {
     this.loader = true;
     console.log(this.password);
 
-    this.loginService.register(this.user).subscribe(
+    this.loginService.registerUser(this.user).subscribe(
       (response) => {
-          this.error = "Successful registration, please verify your email.";
-          this.loader = false;
+        this.error = 'Successful registration, please verify your email.';
+        this.loader = false;
       },
-      (error) =>{
-        this.error = "Error while registering, mobile or email already exist.";
+      (error) => {
+        this.error = 'Error while registering, mobile or email already exist.';
         this.loader = false;
       }
     );
-
-
   }
 
   showPassword() {
@@ -70,13 +67,11 @@ export class SignUpComponent implements OnInit {
       this.passwordType = 'password';
       this.passwordEye = 'glyphicon glyphicon-eye-open';
     }
-
   }
 
   handleCorrectCaptcha(event) {
 
   }
-
 }
 
 
