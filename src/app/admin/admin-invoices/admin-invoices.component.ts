@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./admin-invoices.component.css']
 })
 export class AdminInvoicesComponent implements OnInit {
-  invoices : any = [];
+  invoices: any = [];
   invoice: any;
   constructor() { }
 

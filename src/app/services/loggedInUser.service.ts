@@ -3,25 +3,26 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class UserLoggInService {
 
-  user:any = {};
+  user: any = {};
 
-   public constructor(){
+   public constructor() {
     this.user = JSON.parse(localStorage.getItem('userInfo'));
     //console.log(this.user);
    }
 
   isLoggedIn(): boolean {
     //console.log(this.getLoggedInUser());
-    if(this.user != null) {
+    if (this.user != null) {
       return true;
-    }else{
+    } else {
       return false;
     }
   }
 
-  public getLoggedInUser(){return this.user}
+  public getLoggedInUser() {return this.user; }
 
-  public clear(): void{
+
+  public clear(): void {
     this.user = null;
     localStorage.clear();
     localStorage.removeItem('userInfo');

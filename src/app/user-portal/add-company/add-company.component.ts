@@ -14,7 +14,7 @@ export class AddCompanyComponent implements OnInit {
 
   userPortalObj: any;
 
-  loader: boolean = false;
+  loader = false;
   directorName: string;
   telephone: string;
   companyName: string;
@@ -31,9 +31,9 @@ export class AddCompanyComponent implements OnInit {
   msg: string;
   userToken: any;
   fileSize: any;
-  base64DISC: string
+  base64DISC: string;
   image: string = null;
-  avator: string = 'assets\\home\\userProfile.png';
+  avator = 'assets\\home\\userProfile.png';
   file: any;
 
   constructor(private userPortal: UserPortalService, private route: Router) { }
@@ -45,74 +45,67 @@ export class AddCompanyComponent implements OnInit {
   public addNewCompany() {
     this.loader = true;
     this.company = new Company(this.directorName, this.telephone, this.companyName, this.addressLine1,
-    this.addressLocality, this.addressTown, this.postalCode, this.companyRegistrationNo, this.Companyemail);
-   
+    this.addressLocality, this.addressTown, this.postalCode, this.companyRegistrationNo, this.base64DISC, this.Companyemail);
     this.userPortalObj = JSON.parse(localStorage.getItem('userInfo'));
+    console.log(this.base64DISC);
     console.log(this.userPortalObj);
     console.log(this.company);
     this.userPortal.addNewCompany(this.userPortalObj, this.company).subscribe(
       (res) => {
         console.log(res);
         this.loader = false;
-        this.msg = "Company successfully added!";
+        this.msg = 'Company successfully added!';
       },
       (error) => {
         console.log(error);
         this.loader = false;
-        this.msg = "Unexpected error occured while adding";
+        this.msg = 'Unexpected error occured while adding';
       }
-    )
+    );
   }
 
-  
   onFileChange(event) {
-    var binaryString = event.target.result;
+    const binaryString = event.target.result;
     this.base64DISC = btoa(binaryString);
   }
 
   handleFileSelect(evt) {
-    var files = evt.target.files;
-    var file = files[0];
+    const files = evt.target.files;
+    const file = files[0];
 
     if (files && file) {
-      var reader = new FileReader();
+      const reader = new FileReader();
       reader.onload = this.onFileChange.bind(this);
       reader.readAsBinaryString(file);
-      this.fileSize = file.size; //size in kb
-      this.fileSize = this.fileSize / 1048576; //size in mb 
+      this.fileSize = file.size; // size in kb
+      this.fileSize = this.fileSize / 1048576; // size in mb
     }
   }
 
-
   public onUploadPic() {
-    var picture = {
-      "base64Image": this.base64DISC,
-      "personId": JSON.parse(localStorage.getItem('userInfo')).owner.oid,
+    const picture = {
+      'base64Image': this.base64DISC,
+      'personId': JSON.parse(localStorage.getItem('userInfo')).owner.oid,
     };
-    console.log(JSON.parse(localStorage.getItem('userInfo')).owner.oid)
-    console.log({picture})
+    console.log(JSON.parse(localStorage.getItem('userInfo')).owner.oid);
+    console.log({picture});
     if (this.base64DISC != null) {
       if (this.fileSize < 1) {
         this.loader = true;
         this.userPortal.uploadProfilePic(picture, this.userToken).subscribe(
           (data) => {
             this.loader = false;
-            window.alert("Image successfuly uploaded!");
+            window.alert('Image successfuly uploaded!');
           }, (error) => {
             this.loader = false;
-            window.alert("Error occured, image not uploaded!");
+            window.alert('Error occured, image not uploaded!');
           }
         );
       } else {
-        window.alert("Image too large");
+        window.alert('Image too large');
       }
     } else {
-      window.alert("Error occured, Please select image");
+      window.alert('Error occured, Please select image');
     }
   }
-
-
-
-
-
 }

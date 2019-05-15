@@ -1,13 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import {Router} from '@angular/router';
-
 import { User } from '../models/user';
 import { Login } from '../models/login';
-
-
 import { AdminService } from './../services/admin.service';
- 
 
 @Component({
   selector: 'app-admin',
@@ -16,103 +12,84 @@ import { AdminService } from './../services/admin.service';
 })
 
 export class AdminComponent implements OnInit {
- 
-  adminObj : any;
-  users : any = [];
-  companies : any = [];
-  invoices : any = [];
-  quotes : any = [];
 
-  constructor(private admin : AdminService, private route : Router) {
+  adminObj: any;
+  users: any = [];
+  companies: any = [];
+  company: any = [];
+  invoices: any = [];
+  quotes: any = [];
 
+  constructor(private admin: AdminService, private route: Router) {
     this.adminObj =  JSON.parse(localStorage.getItem('userInfo'));
     this.getCompanies(this.adminObj.token);
-
    }
 
   ngOnInit() {
-
     this.adminObj =  JSON.parse(localStorage.getItem('userInfo'));
+    this.company = JSON.parse(localStorage.getItem('CompanyInvoice'));
     console.log(this.adminObj);
-
     this.getUsers(this.adminObj.token);
-    
     this.getInvoices(this.adminObj.token);
     this.getQuotes(this.adminObj.token);
-
+    this.getCompanies(this.adminObj.token);
   }
-  
 
-
-  private getUsers(token){
+  private getUsers(token) {
     this.admin.getAllUsers(token).subscribe(
-      (res) =>{
-       
+      (res) => {
         this.users = res;
-
       }
-    ) 
+    );
   }
 
-  private getCompanies(token){
+  private getCompanies(token) {
     this.admin.getAllCompanies(token).subscribe(
-      (res) =>{
-       
+      (res) => {
         this.companies = res;
+        console.log(this.companies);
       }
-    )
+    );
   }
 
-  private getInvoices(token){
+  private getInvoices(token) {
     this.admin.getAllInvoices(token).subscribe(
-      (res) =>{
-        
+      (res) => {
         this.invoices = res;
       }
-    )
+    );
   }
 
-
-  
-  private getQuotes(token){
+  private getQuotes(token) {
     this.admin.getAllQuotes(token).subscribe(
-      (res)=> {
- 
-        this.quotes=res;
+      (res) => {
+        this.quotes = res;
+        console.log(this.quotes);
       }
-    )
+    );
   }
 
-
- public viewCompany(company){
-    this.route.navigateByUrl('/viewCompany');
+  public viewCompany(company) {
+    console.log(company);
     localStorage.setItem('company', JSON.stringify(company));
+    this.route.navigateByUrl('/viewCompany');
   }
 
-  public viewUser(user){
-    
-    
-    this.route.navigateByUrl('/viewUser');
+  public viewUser(user) {
+    console.log(user);
     localStorage.setItem('user', JSON.stringify(user));
+    this.route.navigateByUrl('/viewUser-Admin');
   }
 
-
-  public viewQuote(quote){
-    localStorage.setItem('quote', JSON.stringify(quote));
+  public viewQuote(quote) {
     console.log(quote);
-    this.route.navigateByUrl('/viewQuote-admin');
-     
+    localStorage.setItem('quote', JSON.stringify(quote));
+    this.route.navigateByUrl('/viewQuote-Admin');
   }
 
-
-
-    
-
- public viewInvoice(invoice){
-    this.route.navigateByUrl('/viewInvoie'); 
+  public viewInvoice(invoice) {
     console.log(invoice);
     localStorage.setItem('invoice', JSON.stringify(invoice));
+    this.route.navigateByUrl('/viewInvoice-Admin');
   }
-
- 
 }

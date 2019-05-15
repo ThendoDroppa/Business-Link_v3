@@ -63,7 +63,7 @@ export class LoginService {
   }
 
   confirmOTP(otp: number, phoneNo: string): Observable<any> {
-    var headers = new Headers();
+    const headers = new Headers();
     headers.append('Accept', 'application/json');
     headers.append('Content-Type', 'application/json');
     const options = new RequestOptions({ headers: headers });
@@ -72,9 +72,9 @@ export class LoginService {
 
   companyInfo(company: any, token: string): Observable<any> {
 
-    var object = JSON.parse(localStorage.getItem('userData'));
+    const object = JSON.parse(localStorage.getItem('userData'));
 
-    var companyData = {
+    const companyData = {
       'registrationNumber': company.companyReg,
       'name': company.companyName,
       'contact': {
@@ -97,7 +97,7 @@ export class LoginService {
       }
     };
 
-    var vehicleData = {
+    const vehicleData = {
       'registrationNumber': company.registration,
       'vinNumber': company.vinNo,
       'make': company.make,
@@ -109,14 +109,14 @@ export class LoginService {
     };
 
     // company/info
-    var data = {
+    const data = {
       'vehicle': vehicleData,
       'company': companyData
     };
 
     console.log(data);
-    var userToken = 'Bearer ' + token;
-    var headers = new Headers();
+    const userToken = 'Bearer ' + token;
+    const headers = new Headers();
     headers.append('Accept', 'application/json');
     headers.append('Content-Type', 'application/json');
     headers.append('Authorization', userToken);
@@ -125,8 +125,8 @@ export class LoginService {
   }
 
   login(password, email): Observable<any> {
-    var pass = password.split('');
-    var login = {
+    const pass = password.split('');
+    const login = {
       'username': email,
       'pwd': password
     };
@@ -136,8 +136,8 @@ export class LoginService {
 
   uploadDocs(idObject, cpicObject, diskObject, token): Observable<any> {
 
-    var data = [];
-    var documents = {};
+    let data = [];
+    let documents = {};
     if (cpicObject.document === undefined) {
       data = [
         idObject,
@@ -159,8 +159,8 @@ export class LoginService {
 
 
     // console.log(data);
-    var userToken = 'Bearer ' + token;
-    var headers = new Headers();
+    const userToken = 'Bearer ' + token;
+    const headers = new Headers();
     headers.append('Accept', 'application/json');
     headers.append('Content-Type', 'application/json');
     headers.append('Authorization', userToken);
@@ -171,8 +171,8 @@ export class LoginService {
 
   uploadCPIC(cpicObject, token): Observable<any> {
 
-    var data = [];
-    var documents = {};
+    let data = [];
+    let documents = {};
 
     data = [
       cpicObject
@@ -182,8 +182,8 @@ export class LoginService {
       'documents': data
     }
 
-    var userToken = 'Bearer ' + token;
-    var headers = new Headers();
+    const userToken = 'Bearer ' + token;
+    const headers = new Headers();
     headers.append('Accept', 'application/json');
     headers.append('Content-Type', 'application/json');
     headers.append('Authorization', userToken);
@@ -193,19 +193,19 @@ export class LoginService {
   }
 
   activate(email, verificationCode, code ): Observable<any> {
-    var headers = new Headers();
+    const headers = new Headers();
     headers.append('Accept', 'application/json');
     headers.append('Content-Type', 'application/json');
     const options = new RequestOptions({ headers: headers });
     return this.http.post(this.sharedService.getUrl() +
-     'sessions/account/confirmations/' + email + 
-     '/' + verificationCode + 
-     '/' + code, 
+     'sessions/account/confirmations/' + email +
+     '/' + verificationCode +
+     '/' + code,
      '', options);
   }
 
   resetPwd(object: any): Observable<any> {
-    var headers = new Headers();
+    const headers = new Headers();
     headers.append('Accept', 'application/json');
     headers.append('Content-Type', 'application/json');
     const options = new RequestOptions({ headers: headers });
@@ -213,10 +213,10 @@ export class LoginService {
   }
 
   requestPwdReset(email: string): Observable<any> {
-    var headers = new Headers();
+    const headers = new Headers();
     headers.append('Accept', 'application/json');
     headers.append('Content-Type', 'application/json');
     const options = new RequestOptions({ headers: headers });
-    return this.http.post(this.sharedService.getUrl() + 'sessions/reset/pwd/' + email, '', options)
+    return this.http.post(this.sharedService.getUrl() + 'sessions/reset/pwd/' + email, '', options);
   }
 }

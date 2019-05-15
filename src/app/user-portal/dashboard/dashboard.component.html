@@ -63,7 +63,7 @@
     </div>
   </div>
 
-  <div class="panel panel-success">
+  <div class="panel panel-success" style="margin-top: 180px;">
     <div class="table-heading">
       <div class="text-center" style="color:white;padding-top: 10px;font-size:18px">Companies Details</div>
     </div>
@@ -86,6 +86,7 @@
                 <th>Director</th>
                 <th>Email Address</th>
                 <th>Reg No</th>
+                <th>Telephone</th>
                 <th>Quotation</th>
                 <th>Invoice</th>
               </tr>
@@ -96,11 +97,12 @@
                 <td>{{company.director }}</td>
                 <td>{{company.email }}</td>
                 <td>{{company.companyRegistrationNo }}</td>
+                <td>{{company.telephone}}</td>
                 <td>
                   <button type="button" class="btn btn-primary" (click)="viewQuotes(company)">View</button>
                 </td>
                 <td>
-                  <button type="button" class="btn btn-primary" (click)="viewInvoice(company)">view</button>
+                  <button type="button" class="btn btn-primary" (click)="viewInvoice(company)">View</button>
                 </td>
               </tr>
             </tbody>

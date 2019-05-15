@@ -5,7 +5,6 @@ import { Router } from '@angular/router';
 // import 'rxjs/Rx';
 import { Observable } from 'rxjs/Observable';
 import { NgForm } from '@angular/forms';
-
 import { User } from '../models/user';
 import { Login } from '../models/login';
 import { Admin } from '../models/admin';
@@ -18,12 +17,12 @@ import { LoginService } from '../services/login.service';
 })
 export class SignUpComponent implements OnInit {
 
-  public passwordEye: string = 'glyphicon glyphicon-eye-open';
-  public toggleEye: boolean = false;
-  public passwordType: string = 'password';
+  public passwordEye = 'glyphicon glyphicon-eye-open';
+  public toggleEye = false;
+  public passwordType = 'password';
 
   // @ViewChild('userForm') signupForm: NgForm;
-  loader: boolean = false;
+  loader = false;
   firstName: string;
   lastname: string;
   email: string;
@@ -36,9 +35,11 @@ export class SignUpComponent implements OnInit {
   constructor(private loginService: LoginService, private route: Router) { }
 
   ngOnInit() {
+    console.log('Hello');
   }
 
   public register() {
+    console.log('Click here');
     this.user = new User(this.lastname, this.firstName, this.email, this.contactnumber);
     this.login = new Login(this.password, this.email);
     this.user.login = this.login;
@@ -69,9 +70,7 @@ export class SignUpComponent implements OnInit {
     }
   }
 
-  handleCorrectCaptcha(event) {
-
-  }
+  handleCorrectCaptcha(event) {}
 }
 
 

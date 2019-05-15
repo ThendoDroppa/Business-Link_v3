@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserPortalService } from '../../services/userPortal.service';
 
-
 @Component({
   selector: 'app-view-invoice',
   templateUrl: './view-invoice.component.html',
@@ -25,7 +24,7 @@ export class ViewCompanyInvoiceComponent implements OnInit {
     this.company = JSON.parse(localStorage.getItem('CompanyInvoice'));
     this.userPortalObj = JSON.parse(localStorage.getItem('userInfo'));
     console.log(this.company);
-
+    console.log(this.invoice);
   }
 
   ngOnInit() {
@@ -38,13 +37,11 @@ export class ViewCompanyInvoiceComponent implements OnInit {
     var totalPrice = 0.0;
     for (var i = 0; i < this.invoice.listOfInvoice.length; i++) {
       totalPrice = totalPrice + (this.invoice.listOfInvoice[i].price * this.invoice.listOfInvoice[i].quantity);
-    };
+    }
     return totalPrice;
   }
 
-
   public downloadFile() {
-
     var quoteData = {
       "companyOid": this.invoice.companyOid,
       "generatedDate": this.invoice.generatedDate,
@@ -69,14 +66,11 @@ export class ViewCompanyInvoiceComponent implements OnInit {
       "actionType": "download",
       "image": this.company.base64Logo
     };
-
     this.loader = true;
     this.userPortal.downloadInvoice(quoteData, this.userPortalObj.token).subscribe(
-
       (res) => {
         this.invoiceData = res;
         if (this.invoiceData != null) {
-
           this.Billpdf = 'data:application/octet-stream;base64,' + this.invoiceData.fileBytes;
           this.a = document.createElement("a");
           document.body.appendChild(this.a);
@@ -85,23 +79,18 @@ export class ViewCompanyInvoiceComponent implements OnInit {
 
           document.getElementById('qtlink').title = this.company.companyName + "-" + this.invoice.reference + '.pdf';
           var elementTitle = document.getElementById('qtlink').title;
-          this.a.setAttribute("download", elementTitle)
+          this.a.setAttribute("download", elementTitle);
 
-          //var dlnk = document.getElementById('DIDCdwnldLnk');
+          // var dlnk = document.getElementById('DIDCdwnldLnk');
           this.a.href = this.Billpdf;
-
           this.a.click();
           this.loader = false;
         } else {
           this.loader = false;
         }
-
       }, (error) => {
         this.loader = false;
       }
-    )
-
+    );
   }
-
-
 }

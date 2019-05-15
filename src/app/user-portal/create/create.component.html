@@ -86,7 +86,6 @@
                     <p *ngIf="receipentname.errors && (receipentname.dirty || receipentname.touched)">
                       <span [hidden]="!receipentname.errors.required" style="color:red;">Enter your receipent name</span>
                     </p>
-
                     
                     <div class="form-group input-group">
                       <span class="input-group-addon">
@@ -95,7 +94,6 @@
                       <input type="email" class="form-control c"size="60" maxlength="255"   name="email" required [(ngModel)]="email" id="autocomplete2" placeholder="Recipient Email Address"
                       required >
                     </div>
-
 
                     <div class="form-group input-group">
                       <span class="input-group-addon">
@@ -106,7 +104,7 @@
 
                     <div class="form-group input-group">
                       <span class="input-group-addon">
-                        <i class="	glyphicon glyphicon-info-sign" aria-hidden="true"></i>
+                        <i class="glyphicon glyphicon-info-sign" aria-hidden="true"></i>
                       </span>
                       <input type="text" class="form-control" name="ref" [(ngModel)]="ref" id="mytext"  required placeholder="Enter the reference number">
                     </div>
@@ -122,24 +120,15 @@
                       <input type="text" class="form-control rap" name="addressCode" [(ngModel)]="addressCode" style="width:220px" placeholder="Address Postal code(Optional)."
                       size="60" required step="1" maxlength="4" minlength="4" pattern="[0-9]*" required>
                     </div>
-
                   </form>
-
                 </div>
               </div>
-
-
             </div>
-
           </div>
-
-
         </div>
-
       </div>
 
       <div class="col-md-10 col-sm-10 col-xs-12 col-md-offset-1" style="color:red">
-
         <p class="pull-right" style="color:red"></p>
       </div>
       <br>

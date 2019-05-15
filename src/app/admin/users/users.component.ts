@@ -7,8 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UsersComponent implements OnInit {
 
-  user : any;
-  constructor() { 
+  user: any;
+  constructor() {
     this.user = JSON.parse(localStorage.getItem('user'));
   }
 

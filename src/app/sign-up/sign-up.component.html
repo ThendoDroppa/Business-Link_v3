@@ -4,7 +4,7 @@
 </div>
 <div class="container">
     <div class="col-md-3"></div>
-    <div class="col-md-6">
+    <div class="col-md-6" style="top: 80px;">
         <div class="row myborder">
             <form role="form" #userForm="ngForm">
                 <h4 style="color: #63bc4c; margin: initial; margin-bottom: 10px;">Sign Up Now</h4>
@@ -69,7 +69,6 @@
                     <div class="col-md-12">
                         <button class="btn-u pull-left" [disabled]="!userForm.form.valid" type="submit" (click)="register()">Register</button>
                     </div>
-
                 </div>
                 <h5 class="text-center" style="padding-top:3px !important;">{{error}}</h5>
             </form>

@@ -1,66 +1,136 @@
+<div class="col-md-6 col-md-offset-1 col-sm-12 col-xs-12" *ngIf="loader" id="loading">
+  <img src="./assets/img/loader.gif" id="loading-image">
+  <h4 class="text-center loader-header">Please wait...</h4>
+</div>
+<div class="container well">
+  <br><br><br><br><br><br>
+  <div class="box" bgcolor='#e4e4e4' text='#ff6633' link='#666666' vlink='#666666' alink='#ff6633'>
 
-<body style="padding-bottom:200px;">
-	<br><br><br><br><br><br>
-	<div class="container  well">
-		<div class="row">
-          <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-          <br>
-            <div class="panel panel-info">
-           
-            <div class="panel-body">
-              <div class="row">
-                <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="{{company.base64Logo}}" class="img-circle img-responsive"> </div>
-                
-                <div class=" col-md-5 col-lg-9"> 
-                  <table class="table table-user-information">
-                    <tbody>
-                      
-                      <tr>
-                        <td>Company Name:</td>
-                        <td>{{company.companyName}}</td>
-                      </tr>
+    <section
+      style='position: relative;clear: both;margin: 5px 0;height: 1px;border-top: 1px solid #cbcbcb;margin-bottom: 5px;margin-top: 5px;text-align: center;'>
+      <h3 align='center'
+        style='margin-top: -12px;background-color: #FFF;clear: both;width: 200px;margin-right: auto;margin-left: auto;padding-left: 15px;padding-right: 15px; font-family: arial,sans-serif;'>
+        <span>COMPANY DETAILS</span>
+      </h3>
+    </section>
 
-                      <tr>
-                        <td>Director :</td>
-                        <td>{{company.director}}</td>
-                      </tr>
+    <br><br>
+    <table background='' bgcolor='#e4e4e4' width='100%' style='padding:20px 0 20px 0' cellspacing='0' border='0' align='center' cellpadding='0'>
+      <tbody>
+        <tr>
+          <td valign='top' style='color:#404041;line-height:16px;padding:30px 20px 0px 10px'></td>
+        </tr>
+        <tr>
+          <td>
+            <table width='620' border='0' align='center' cellpadding='0' cellspacing='0' bgcolor='#FFFFFF' style='border-radius: 5px;'>
+              <tbody>
+                <tr>
+                  <td>
+                    <table width='620' border='0' cellspacing='0' cellpadding='0' style='border-bottom:solid 1px #e5e5e5'>
+                      <tbody>
+                        <tr>
+                          <td align='left' valign='top' style='padding:0px 5px 0px 5px'>
+                            <table height='20px' width='100%' border='0' cellpadding='0' cellspacing='0'>
+                              <tbody>
 
-                      <tr>
-                        <td>Company Tel:</td>
-                        <td>{{company.telephone}}</td>
-                      </tr>
-                   
-                     
-                      <tr>
-                        <td>Reg No:</td>
-                        <td>{{company.companyRegistrationNo}}</td>
-                      </tr>
+                                <tr>
+                                  <td height='10px' valign='top' style='color:#404041;font-size:13px;padding:5px 5px 0px 20px'></td>
+                                </tr>
 
-                      <tr>
-                        <td>Address</td>
-                        <td>{{company.addressLine1}}
-                          <br>{{company.addressLocality}}
-                          <br>{{company.addressTown}}
-                          <br>{{company.postalCode}}
-                        </td>
-                      </tr>    
-                   
-                     <tr>
-                        <td>Email Address:</td>
-                        <td>{{company.email}}</td>
-                     </tr>
+                              </tbody>
+                            </table>
+                          </td>
+                          <td align='left' valign='top' style='padding:0px 5px 0px 5px'>
+                            <table height='146' width='100%' border='0' cellpadding='3' cellspacing='3' style='border-right:solid 1px #e5e5e5'>
+                              <tbody>
+                                <tr>
+                                  <td height='16' valign='top' style='color:#404041;font-size:13px;padding:15px 5px 0px 5px'>
+                                    <strong>Company Address:</strong>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td valign='top' style='color:#404041;font-size:12px;padding:0px 5px 0px 5px'>
+                                    {{ company.addressLine1 }}<br>
+                                    {{ company.addressLocality }}<br>
+                                    {{ company.addressTown }}<br>
+                                    {{ company.postalCode }}<br>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td height='16' valign='top' style='color:#404041;font-size:13px;padding:0px 5px 0px 5px'>
+                                    <strong>Tel: </strong>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td valign='top' style='color:#404041;font-size:12px;padding:0px 5px 0px 5px'>
+                                    <p>
+                                      <a href='tel:061%937%0266%' value='+27619370266' target='_blank'>{{ company.telephone }}</a><br>
+                                    </p>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td height='16' valign='top' style='color:#404041;font-size:13px;padding:0px 5px 0px 5px'>
+                                    <strong>Email: </strong>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td valign='top' style='color:#404041;font-size:12px;padding:0px 5px 0px 5px'>
+                                    <p>
+                                      <a href='mailto:{{company != undefined ? company.email : ""}}'>{{ company.email }}</a><br>
+                                    </p>
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </td>
+                          <td align='left' valign='top' style='padding:0px 5px 0px 5px'>
+                            <table height='146' width='100%' border='0' cellpadding='3' cellspacing='3'>
+                              <tbody>
+                                <tr>
+                                  <td height='16' valign='top' style='color:#404041;font-size:13px;padding:15px 5px 0px 5px'>
+                                    <strong>Company Name: </strong>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td valign='top' style='color:#404041;font-size:12px;padding:0px 5px 0px 5px'>
+                                    <p>
+                                      {{ company.companyName }}<br>
+                                      <br>
+                                    </p>
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </td>
+                          <td align='left' valign='top' style='padding:0px 5px 0px 0px'>
+                            <table height='140' width='100%' border='0' cellpadding='3' cellspacing='3'>
+                              <tbody>
+                                <tr>
+                                  <td height='16' valign='top' style='color:#404041;font-size:13px;padding:15px 5px 0px 5px'>
+                                    <strong>Company Director: </strong>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td valign='top' style='color:#404041;font-size:12px;line-height:16px;padding:0px 5px 0px 5px'>
+                                    <p>
+                                      {{ company.director }}<br>
+                                    </p>
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </td>
+                </tr>
 
-                    </tbody>
-                  </table>
-               
-                </div>
-              </div>
-              </div>
-              </div>
-            </div>
-
-             
-		    </div>
-				
-    </div>
-	
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

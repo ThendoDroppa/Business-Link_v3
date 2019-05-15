@@ -4,10 +4,9 @@ import { FormGroup, NgForm } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { UserPortalService } from '../../services/userPortal.service';
 import { from } from 'rxjs/observable/from';
-
 import { Company } from '../../models/company';
 import { User } from '../../models/user';
-
+import * as jsPDF from 'jspdf';
 
 @Component({
   selector: 'app-review',
@@ -15,10 +14,9 @@ import { User } from '../../models/user';
   styleUrls: ['./review.component.css']
 })
 
-
 export class ReviewComponent implements OnInit {
 
-  // @ViewChild('myBankForm') bankForm : NgForm; 
+  // @ViewChild('myBankForm') bankForm : NgForm;
   userPortalObj: any;
   company: any;
   invoiceData: any;
@@ -45,178 +43,166 @@ export class ReviewComponent implements OnInit {
   branch: string;
   resp: any;
   total: any;
-  // createInvoice: any;
 
-  //style: any;
+
+  // createInvoice: any;
+  // style: any;
   // resetForm: any;
 
   constructor(private userPortal: UserPortalService, private route: Router) { }
 
   ngOnInit() {
-
     this.userPortalObj = JSON.parse(localStorage.getItem('userInfo'));
     this.company = JSON.parse(localStorage.getItem('CompanyQuote'));
-
     this.invoiceData = JSON.parse(localStorage.getItem('data'));
-    // console.log(this.company);
-    // console.log(this.userPortalObj);
-    // console.log(this.invoiceData.listOfInvoice
-    //); 
-
+    console.log(this.company);
+    console.log(this.userPortalObj);
+    console.log(this.invoiceData.listOfInvoice);
   }
-
-
 
   onFormSubmit(form: NgForm, bankForm: NgForm) {
     this.isValidFormSubmitted = false;
     if (form.invalid) {
       return;
+    } else {
     }
-    else {
-
-    }
-
-    if (this.invoice != undefined || this.quote != undefined) {
-      if (this.invoice != undefined) {
-
+    if (this.invoice !== undefined || this.quote !== undefined) {
+      if (this.invoice !== undefined) {
         this.email = this.company.email;
+        console.log(this.email);
         // this.listOfInvoice = this.invoiceData.listOfInvoice;
         this.loader = true;
 
         if (bankForm.valid) {
-          var invoiceDataObj = {
-            "companyOid": this.company.oid,
-            "generatedDate": this.invoiceData.generatedDate,
-            "reference": this.invoiceData.reference,
-            "recipientName": this.invoiceData.recipientName,
-            "recipientEmail": this.invoiceData.recipientEmail,
-            "discountAmt": this.invoiceData.discountAmt,
-            "salesTax": this.invoiceData.salesTax,
-            "bankName": this.bankname,
-            "accountName": this.accountHolder,
-            "accountNo": this.accountNo,
-            "branchCode": this.branch,
-            "actualRecipient": this.email,
-            "recipientPhone": this.invoiceData.recipientPhone,
-            "recipientAddress": {
-              "addresssLine1": this.invoiceData.address.addressLine1,
-              "locality": this.invoiceData.address.locality,
-              "city": this.invoiceData.address.city,
-              "postalCode": this.invoiceData.address.postalCode
-            },
-            "listOfInvoice": this.invoiceData.listOfInvoice,
-            "actionType": "download",
-            "image": this.company.base64Logo
-          };
-          console.log(invoiceDataObj);
+          const invoiceDataObj = {
+              'companyOid': this.company.oid,
+              'generatedDate': this.invoiceData.generatedDate,
+              'reference': this.invoiceData.reference,
+              'recipientName': this.invoiceData.recipientName,
+              'recipientEmail': this.invoiceData.recipientEmail,
+              'discountAmt': this.invoiceData.discountAmt,
+              'salesTax': this.invoiceData.salesTax,
+              'bankName': this.bankname,
+              'accountName': this.accountHolder,
+              'accountNo': this.accountNo,
+              'branchCode': this.branch,
+              'actualRecipient': this.email,
+              'recipientPhone': this.invoiceData.recipientPhone,
+              'recipientAddress': {
+                'addresssLine1': this.invoiceData.address.addressLine1,
+                'locality': this.invoiceData.address.locality,
+                'city': this.invoiceData.address.city,
+                'postalCode': this.invoiceData.address.postalCode
+              },
+              'listOfInvoice': this.invoiceData.listOfInvoice,
+              'actionType': 'download',
+              'image': this.company.base64Logo,
+            };
 
+          console.log(this.invoiceData.listOfInvoice[1].description);
+          console.log(this.invoiceData.listOfInvoice[0].description);
+          
+          console.log({invoiceDataObj});
+          console.log(this.company.base64Logo);
 
           this.userPortal.downloadInvoice(invoiceDataObj, this.userPortalObj.token).subscribe(
             (res) => {
               console.log(res);
               this.resp = res;
               console.log(this.resp);
+              console.log(invoiceDataObj);
+              console.log(this.userPortalObj.token);
 
               if (this.resp.fileBytes != null) {
-
+                console.log(this.resp.fileBytes);
                 this.Billpdf = 'data:application/octet-stream;base64,' + this.resp.fileBytes;
-                var a = document.createElement("a");
+                console.log(this.Billpdf);
+                const a = document.createElement('a');
                 document.body.appendChild(a);
-                a.setAttribute("id", "qtlink")
+                a.setAttribute('id', 'qtlink');
                 // a.style = "display: none";
 
-                document.getElementById('qtlink').title = this.company.companyName + "-" + this.invoiceData.reference + '.pdf';
-                var elementTitle = document.getElementById('qtlink').title;
-                a.setAttribute("download", elementTitle)
+                document.getElementById('qtlink').title = this.company.companyName + '-' + this.invoiceData.reference + '.pdf';
+                const elementTitle = document.getElementById('qtlink').title;
+                console.log(elementTitle);
+                a.setAttribute('download', elementTitle);
                 a.href = this.Billpdf;
                 a.click();
                 this.loader = false;
-
               } else {
-                this.resultMsg = "Bill invoice successfully downloaded.";
+                this.resultMsg = 'Bill invoice successfully downloaded.';
                 this.loader = false;
               }
-
             }, (error) => {
-              this.resultMsg = "Failed to download the bill document.";
+              this.resultMsg = 'Failed to download the bill document.';
             }
-          )
+          );
 
-
-          console.log("Invoice created");
+          console.log('Invoice created');
 
           this.isValidFormSubmitted = true;
           this.bill = form.controls['bill'].value;
           this.resetForm(form);
-
         } else {
-          alert("Please fill-in bank details.");
+          alert('Please fill-in bank details.');
         }
       } else {
 
         this.email = this.company.email;
         this.loader = true;
 
-        var invoiceDataObj = {
-          "companyOid": this.company.oid,
-          "generatedDate": this.invoiceData.generatedDate,
-          "reference": this.invoiceData.reference,
-          "recipientName": this.invoiceData.recipientName,
-          "recipientEmail": this.invoiceData.recipientEmail,
-          "discountAmt": this.invoiceData.discountAmt,
-          "salesTax": this.invoiceData.salesTax,
-          "bankName": this.bankname,
-          "accountName": this.accountHolder,
-          "accountNo": this.accountNo,
-          "branchCode": this.branch,
-          "actualRecipient": this.email,
-          "recipientPhone": this.invoiceData.recipientPhone,
-          "recipientAddress": {
-            "addresssLine1": this.invoiceData.address.addressLine1,
-            "locality": this.invoiceData.address.locality,
-            "city": this.invoiceData.address.city,
-            "postalCode": this.invoiceData.address.postalCode
+        const invoiceDataObj = {
+          'companyOid': this.company.oid,
+          'generatedDate': this.invoiceData.generatedDate,
+          'reference': this.invoiceData.reference,
+          'recipientName': this.invoiceData.recipientName,
+          'recipientEmail': this.invoiceData.recipientEmail,
+          'discountAmt': this.invoiceData.discountAmt,
+          'salesTax': this.invoiceData.salesTax,
+          'bankName': this.bankname,
+          'accountName': this.accountHolder,
+          'accountNo': this.accountNo,
+          'branchCode': this.branch,
+          'actualRecipient': this.email,
+          'recipientPhone': this.invoiceData.recipientPhone,
+          'recipientAddress': {
+            'addresssLine1': this.invoiceData.address.addressLine1,
+            'locality': this.invoiceData.address.locality,
+            'city': this.invoiceData.address.city,
+            'postalCode': this.invoiceData.address.postalCode
           },
-          "listOfInvoice": this.invoiceData.listOfInvoice,
-          "actionType": "download",
-          "image": this.company.base64Logo
+          'listOfInvoice': this.invoiceData.listOfInvoice,
+          'actionType': 'download',
+          'image': this.company.base64Logo
         };
 
         this.userPortal.downloadQuote(invoiceDataObj, this.userPortalObj.token).subscribe(
           (res) => {
             this.resp = res;
             if (this.resp.fileBytes != null) {
-
               this.Billpdf = 'data:application/octet-stream;base64,' + this.resp.fileBytes;
-              var a = document.createElement("a");
+              const a = document.createElement('a');
               document.body.appendChild(a);
-              a.setAttribute("id", "qtlink")
+              a.setAttribute('id', 'qtlink');
               // a.style = "display: none";
 
-              document.getElementById('qtlink').title = this.company.companyName + "-" + this.invoiceData.reference + '.pdf';
-              var elementTitle = document.getElementById('qtlink').title;
-              a.setAttribute("download", elementTitle)
+              document.getElementById('qtlink').title = this.company.companyName + '-' + this.invoiceData.reference + '.pdf';
+              const elementTitle = document.getElementById('qtlink').title;
+              a.setAttribute('download', elementTitle);
               a.href = this.Billpdf;
               a.click();
               this.loader = false;
-
             } else {
-              this.resultMsg = "Bill quote successfully downloaded.";
+              this.resultMsg = 'Bill quote successfully downloaded.';
               this.loader = false;
             }
-
           }
-        )
-
+        );
         this.isValidFormSubmitted = true;
         this.bill = form.controls['bill'].value;
         this.resetForm(form);
-
       }
     }
-
-
-
   }
 
   resetForm(form: NgForm) {
@@ -224,10 +210,5 @@ export class ReviewComponent implements OnInit {
       bill: this.invoices
     });
   }
-
-
-
-
-
 }
 

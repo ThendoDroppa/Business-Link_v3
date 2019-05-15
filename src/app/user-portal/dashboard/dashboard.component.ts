@@ -1,12 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import { Router } from '@angular/router';
-
-
-
 import { User } from '../../models/user';
 import { Login } from '../../models/login';
-
 import { UserPortalService } from '../../services/userPortal.service';
 
 @Component({
@@ -14,7 +10,6 @@ import { UserPortalService } from '../../services/userPortal.service';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
-
 export class DashboardComponent implements OnInit {
   userPortalObj: any;
   users: any = [];
@@ -32,9 +27,7 @@ export class DashboardComponent implements OnInit {
   loader: any;
   // assets/img/userProfile.png"
 
-  constructor(private userPortal: UserPortalService, private route: Router) {
-
-  }
+  constructor(private userPortal: UserPortalService, private route: Router) {}
 
   ngOnInit() {
     this.userPortalObj = JSON.parse(localStorage.getItem('userInfo'));
@@ -42,12 +35,15 @@ export class DashboardComponent implements OnInit {
     this.userPortal.getCompanyInfor(this.userPortalObj.token, this.userPortalObj.owner.oid).subscribe(
       (res) => {
         this.companies = res;
+        console.log(this.companies);
       }
     );
     this.getProfilePicture();
+    console.log('Hello Dashboard');
   }
 
   public viewQuotes(company) {
+    console.log(company);
     localStorage.setItem('CompanyQuote', JSON.stringify(company));
     this.route.navigateByUrl('/quotation');
   }

@@ -9,31 +9,30 @@ import { LoginService } from '../../services/login.service';
 })
 export class ForgotPasswordComponent implements OnInit {
 
-  email:string;
-  error :string;
-  success : string;
+  email: string;
+  error: string;
+  success: string;
 
-  constructor(private loginService : LoginService) { }
+  constructor(private loginService: LoginService) { }
 
   ngOnInit() {
   }
 
-  forgotPassword(){
+  forgotPassword() {
     console.log(this.email);
     this.error = '';
     this.success = '';
     this.loginService.requestPwdReset(this.email)
     .subscribe(
-      (res : Response) => {
-        if(res.status == 200) {
-          this.success = "Email sent, Check your emails for verification.";
+      (res: Response) => {
+        if (res.status === 200) {
+          this.success = 'Email sent, Check your emails for verification.';
         }
-        
       },
       (err)  => {
-        this.error = "Email address doesnt exist."
+        this.error = 'Email address doesnt exist.';
       }
-    )
+    );
   }
 
 }

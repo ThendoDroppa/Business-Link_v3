@@ -12,9 +12,7 @@
         </div>
       </div>
       <div class="panel-body">
-
         <div class="col-md-12 col-sm-6 col-xs-12 col-lg-12">
-
 
           <div class="table-responsive responsive-table">
             <div class="input-group">
@@ -23,41 +21,35 @@
               </span>
               <input type="text" class="form-control" style="width:30%" ng-model="expression">
 
-              <span class="input-group-btn">
-                
-                  <button class="btn btn-primary" type="button" (click)="createInvoice()">Create Invoice </button>
-               
+              <span class="input-group-btn">                
+                <button class="btn btn-primary" type="button" (click)="createInvoice()">Create Invoice</button>              
               </span>
             </div>
 
             <table class="table table-responsive responsive-table ">
               <thead class="thead-inverse">
                 <tr>
+                  <th>Company Name</th>
                   <th>Reference No</th>
                   <th>Recipient Name</th>
                   <th>Recipient Email</th>
                   <th>Recipient Phone</th>
-                  <th>Actual Recipient</th>
+                  <th>Recipeint Date</th>
                 </tr>
               </thead>
-              <tbody  class="hovering">
-                
+              <tbody class="hovering">              
                 <tr *ngFor="let invoice of invoices" (click)="viewCompanyInvoice(invoice)">
-                  <td></td>
-                  <td>{{"Company Name"}}</td>
-                  <td>{{invoice.generatedDate}}</td>
+                  <!-- <td>{{"Company Name"}}</td> -->
+                  <td>{{company.companyName}}</td>
                   <td>{{invoice.reference}}</td>
                   <td>{{invoice.recipientName}}</td>
                   <td>{{invoice.recipientEmail}}</td>
                   <td>{{invoice.recipientPhone}}</td>
-              </tr>
-              
+                  <td>{{invoice.generatedDate}}</td>
+                </tr>             
               </tbody>
-             </table>
-
-            
-          </div>
-        
+             </table>           
+          </div>    
         </div>
       </div>
     </div>

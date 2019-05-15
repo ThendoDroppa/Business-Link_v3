@@ -23,12 +23,10 @@ br><br>
                         <span class="input-group-addon">
                           <i class="fa fa-unlock color-blue"></i>
                         </span>
-
                         <input id="emailInput" required step="1" maxlength="4" minlength="4"
-                         pattern="[0-9]*" name="otp" placeholder="Enter the OTP "
+                          pattern="[0-9]*" name="otp" placeholder="Enter the OTP "
                           class="form-control" type="text" [(ngModel)]="otp"
                           #otpNo='ngModel'>
-
                       </div> 
                     </div>
                     <p [hidden]="otpNo.valid || otpNo.pristine" style="color:#990000;">Enter valid OTP code</p>

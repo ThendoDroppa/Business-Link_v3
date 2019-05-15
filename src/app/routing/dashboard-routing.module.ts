@@ -25,7 +25,7 @@ export const THIRD_ROUTES: Routes = [
     { path: 'review', component: ReviewComponent, canActivate: [OnlyLoggedInUsersGuard, AlwaysAuthGuard]},
     { path: 'create', component: CreateComponent, canActivate: [OnlyLoggedInUsersGuard, AlwaysAuthGuard]},
     { path: 'addCompany', component: AddCompanyComponent, canActivate: [OnlyLoggedInUsersGuard, AlwaysAuthGuard]},
-    { path: 'view-Invoie', component: ViewCompanyInvoiceComponent, canActivate: [OnlyLoggedInUsersGuard, AlwaysAuthGuard]},
+    { path: 'view-Invoice', component: ViewCompanyInvoiceComponent, canActivate: [OnlyLoggedInUsersGuard, AlwaysAuthGuard]},
     { path: 'view-Quote', component: ViewCompanyQuoteComponent, canActivate: [OnlyLoggedInUsersGuard, AlwaysAuthGuard]}
 ]
 

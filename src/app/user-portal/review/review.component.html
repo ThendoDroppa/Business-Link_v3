@@ -13,15 +13,10 @@
           <div class="panel-body">
             <div class="row">
               <div class="col-md-3 col-lg-3 " align="center">
-                <img alt="User Pic" src="{{company.base64Logo}}" class="img-circle img-responsive"> </div>
-
-
-
+                <img alt="User Pic" src="{{company.base64Logo}}" class="img-circle img-responsive"> 
+              </div>
 
               <div class="col-md-5 col-lg-9">
-
-
-
                 <table class="table table-user-information">
                   <thead align="center">
                     <tr class="titles">
@@ -30,14 +25,12 @@
                   </thead>
                   <tbody>
 
-
                     <tr>
                       <td>
                         <strong>Company Name:</strong>
                       </td>
                       <td>{{ company.companyName }}</td>
                     </tr>
-
 
                     <tr>
                       <td>
@@ -46,7 +39,6 @@
                       <td>{{ company.director }}</td>
                     </tr>
 
-
                     <tr>
                       <td>
                         <strong>Company Tel:</strong>
@@ -54,16 +46,12 @@
                       <td>{{ company.telephone }}</td>
                     </tr>
 
-
-
-
                     <tr>
                       <td>
                         <strong>Reg No:</strong>
                       </td>
                       <td>{{ company.companyRegistrationNo }}</td>
                     </tr>
-
 
                     <tr>
                       <td>
@@ -74,6 +62,7 @@
                         <br /> {{company.addressTown}}
                         <br /> {{company.postalCode }}</td>
                     </tr>
+
                     <tr>
                       <td>
                         <strong>Email Address:</strong>
@@ -83,9 +72,6 @@
 
                   </tbody>
                 </table>
-
-
-
               </div>
 
               <div class="col-md-5 col-lg-9">
@@ -111,16 +97,12 @@
                       <td>{{invoiceData.recipientEmail}}</td>
                     </tr>
 
-
                     <tr>
                       <td>
                         <strong>Recipient Tel:</strong>
                       </td>
                       <td>{{invoiceData.recipientPhone}}</td>
                     </tr>
-
-
-
 
                     <tr>
                       <td>
@@ -139,13 +121,8 @@
                         <br>{{invoiceData.address.postalCode}}</td>
                     </tr>
 
-
-
-
-
                   </tbody>
                 </table>
-
               </div>
 
             </div>
@@ -205,42 +182,41 @@
                   <span class="input-group-addon">
                     <i class="fa fa-bank"></i>
                   </span>
-                  <input ng-disabled="disableButton" type="text" class="form-control c" name="bankname" [(ngModel)]="bankname" required id="autocomplete"
-                    ng-minlength="2" placeholder="Bank name" #bankName="ngModel" />
-
+                  <input ng-disabled="disableButton" type="text" class="form-control c" name="bankname"
+                    [(ngModel)]="bankname" required id="autocomplete" ng-minlength="2" placeholder="Bank name"
+                    #bankName="ngModel" />
                 </div>
 
                 <div class="form-group input-group">
                   <span class="input-group-addon">
                     <i class="fa fa-id-card-o"></i>
                   </span>
-                  <input ng-disabled="disableButton" type="text" class="form-control c" name="accountHolder" [(ngModel)]="accountHolder" required
-                    id="autocomplete2" placeholder="Account Holder name" #accountHolder_="ngModel">
-
+                  <input ng-disabled="disableButton" type="text" class="form-control c" name="accountHolder"
+                    [(ngModel)]="accountHolder" required id="autocomplete2" placeholder="Account Holder name"
+                    #accountHolder_="ngModel">
                 </div>
-
 
                 <div class="form-group input-group">
                   <span class="input-group-addon">
                     <i class="fa fa-address-card" aria-hidden="true"></i>
                   </span>
-                  <input ng-disabled="disableButton" type="number" class="form-control" name="accountNo" id="phone" [(ngModel)]="accountNo"
-                    required ng-pattern="/^[0-9]*$/" placeholder="Account Number" #accountno="ngModel">
-
+                  <input ng-disabled="disableButton" type="number" class="form-control" name="accountNo" id="phone"
+                    [(ngModel)]="accountNo" required ng-pattern="/^[0-9]*$/" placeholder="Account Number"
+                    #accountno="ngModel">
                 </div>
+
                 <div class="form-group input-group">
                   <span class="input-group-addon">
                     <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
                   </span>
-
-                  <input ng-disabled="disableButton" type="number" class="form-control" name="branch" id="mytext" [(ngModel)]="branch" required
-                    ng-pattern="/^[0-9]{6}$/" placeholder="Branch code" #branch_="ngModel">
+                  <input ng-disabled="disableButton" type="number" class="form-control" name="branch" id="mytext"
+                    [(ngModel)]="branch" required ng-pattern="/^[0-9]{6}$/" placeholder="Branch code"
+                    #branch_="ngModel">
                 </div>
+                 
               </form>
             </div>
           </div>
-
-
 
           <form #userForm="ngForm" (ngSubmit)="onFormSubmit(userForm, bankForm)">
             <div class="pull-right">
@@ -248,28 +224,28 @@
                 <legend class="col-form-legend col-sm-10"></legend>
                 <div class="col-sm-10">
 
-
                   <div class="form-check">
                     <label class="form-check-label">
-                      <input type="radio" class="form-check-input" [(ngModel)]="invoice" name="bill" value="invoices" required #bill="ngModel">Invoice
+                      <input type="radio" class="form-check-input" [(ngModel)]="invoice" name="bill" value="invoices"
+                        required #bill="ngModel"> Invoice
                     </label>
                   </div>
 
                   <div class="form-check">
                     <label class="form-check-label">
-                      <input type="radio" class="form-check-input" [(ngModel)]="quote" name="bill" value="quotes" required #bill="ngModel"> Quotation
+                      <input type="radio" class="form-check-input" [(ngModel)]="quote" name="bill" value="quotes"
+                        required #bill="ngModel"> Quotation
                     </label>
                   </div>
-
-
 
                 </div>
               </fieldset>
               <!-- <a class="btn downloadbtn">Download Document</a> download() -->
-              <button class="btn downloadbtn" type="submit" >Download Document</button>
-              <br />
+              <button class="btn downloadbtn" type="submit">Download Document</button>
+              <br/>
 
-              <p class="pull-right" style="color:red;" *ngIf="bill.invalid && userForm.submitted && !isValidFormSubmitted" [ngClass]="'error'">
+              <p class="pull-right" style="color:red;"
+                *ngIf="bill.invalid && userForm.submitted && !isValidFormSubmitted" [ngClass]="'error'">
                 Please Select The Bill!
               </p>
               <br />
@@ -279,16 +255,11 @@
             </div>
           </form>
 
-
-
         </div>
       </div>
       <br>
-
     </div>
-
   </div>
-
 
 
   <div class="modal fade" id="emailFile" role="dialog">
@@ -304,7 +275,8 @@
           <form name="myF">
             <div class="form-group">
               <label class="sr-only" for="make">Email Address:</label>
-              <input type="email" required name="make" id="make" class="form-control" placeholder="Enter email address" value="hhhh" />
+              <input type="email" required name="make" id="make" class="form-control" placeholder="Enter email address"
+                value="hhhh" />
               <p style="color:red;">Enter correct email address</p>
             </div>
 

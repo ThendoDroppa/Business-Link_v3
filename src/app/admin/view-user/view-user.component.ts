@@ -9,12 +9,12 @@ import { AdminService } from '../../services/admin.service';
 })
 export class ViewUserComponent implements OnInit {
 
-  user :any;
+  user: any;
   fullName;
-  userPortalObj : any;
-  companies : any = [];
-  txt : string = "";
-  //btnText: string = "Unknown"
+  userPortalObj: any;
+  companies: any = [];
+  txt = '';
+  // btnText: string = "Unknown"
 
   constructor(private admin: AdminService) {
     this.user = JSON.parse(localStorage.getItem('user'));
@@ -23,43 +23,39 @@ export class ViewUserComponent implements OnInit {
   }
 
   ngOnInit() {
- 
     this.admin.getAllUserCompanies(this.userPortalObj.token, this.user.owner.oid).subscribe(
       (res) => {
         this.companies = res;
+        console.log();
       }
-    )
+    );
   }
 
-  public btnText(status){
-		var btnText = "Unknown Status";
-		if(status === "ACTIVE"){
-			btnText = "Block"
-		}else if(status === "SUSPENDED"){
-			btnText = "Activate"
+  public btnText(status) {
+		var btnText = 'Unknown Status';
+		if (status === 'ACTIVE') {
+			btnText = 'Block';
+		} else if (status === 'SUSPENDED') {
+			btnText = 'Activate';
 		}
 		return btnText;
   }
-  
+
   public changeStatus() {
-    if(this.user.status === "ACTIVE"){
-      
+    if (this.user.status === 'ACTIVE') {
       this.admin.block(this.userPortalObj.token, this.user.owner.email).subscribe(
         (res) => {
-          this.txt = "User is successfully blocked";
+          this.txt = 'User is successfully blocked';
         }
       );
-
-		}else if(this.user.status === "SUSPENDED"){
+		} else if (this.user.status === 'SUSPENDED') {
       this.admin.activate(this.userPortalObj.token, this.user.owner.email).subscribe(
         (res) => {
-          this.txt = "User is successfully activated";
+          this.txt = 'User is successfully activated';
         }
       );
-      
-		}else {
-      alert("User's account not active.");
+		} else {
+      alert('User\'s account not active.');
     }
   }
-
 }

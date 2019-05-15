@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Response } from '@angular/http';
 import { LoginService } from '../../services/login.service';
 
@@ -17,7 +17,7 @@ export class ConfirmOtpComponent implements OnInit {
   error = '';
   success = '';
 
-  constructor(private route: ActivatedRoute, private loginService: LoginService) { }
+  constructor(private route: ActivatedRoute, private loginService: LoginService, private router: Router) { }
 
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
@@ -38,6 +38,7 @@ export class ConfirmOtpComponent implements OnInit {
           if (response.json().confirmed) {
             this.success = 'Your account is activated successful.';
             console.log(this.success);
+            this.router.navigateByUrl('/login');
           } else {
             this.error = 'Account not active, verify the code.';
             console.log(this.error);

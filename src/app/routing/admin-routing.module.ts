@@ -16,8 +16,8 @@ export const SECOND_ROUTES : Routes = [
     { path : '', component : HomeComponent},
     { path : 'admin', component : AdminComponent, canActivate: [OnlyLoggedInUsersGuard, AlwaysAuthGuard]},
     { path : 'viewCompany', component : ViewCompanyComponent, canActivate: [OnlyLoggedInUsersGuard, AlwaysAuthGuard]},
-    { path : 'viewUser', component : ViewUserComponent, canActivate: [OnlyLoggedInUsersGuard, AlwaysAuthGuard]},
-    { path : 'viewInvoie', component : ViewInvoiceComponent, canActivate: [OnlyLoggedInUsersGuard, AlwaysAuthGuard]},
-    { path : 'viewQuote-admin', component : ViewQuoteComponent, canActivate: [OnlyLoggedInUsersGuard, AlwaysAuthGuard]}
+    { path : 'viewUser-Admin', component : ViewUserComponent, canActivate: [OnlyLoggedInUsersGuard, AlwaysAuthGuard]},
+    { path : 'viewInvoice-Admin', component : ViewInvoiceComponent, canActivate: [OnlyLoggedInUsersGuard, AlwaysAuthGuard]},
+    { path : 'viewQuote-Admin', component : ViewQuoteComponent, canActivate: [OnlyLoggedInUsersGuard, AlwaysAuthGuard]}
    
 ]
