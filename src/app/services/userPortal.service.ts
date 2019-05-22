@@ -26,22 +26,23 @@ export class UserPortalService {
     // get company's invoice by company ID
     public getCompanInvoice(token, companyOid): Observable<any> {
         const userToken = 'Bearer ' + token;
-
         return this.httpClient.get(this.sharedService.getUrl() + 'parties/bill/documents/retrieve/invoice/' + companyOid,
-            {
-                headers: new HttpHeaders().set('Accept', 'application/json').
-                    set('Content-Type', 'application/json').set('Authorization', userToken)
-            });
-
+        {
+            headers: new HttpHeaders().
+            set('Accept', 'application/json').
+            set('Content-Type', 'application/json').
+            set('Authorization', userToken)
+        });
     }
 
     public getCompanyQuotes(Usertoken, companyOid): Observable<any> {
         const userToken = 'Bearer ' + Usertoken;
-
         return this.httpClient.get(this.sharedService.getUrl() + 'parties/bill/documents/retrieve/quotes/' + companyOid,
         {
-            headers: new HttpHeaders().set('Accept', 'application/json').
-            set('Content-Type', 'application/json').set('Authorization', userToken)
+            headers: new HttpHeaders().
+            set('Accept', 'application/json').
+            set('Content-Type', 'application/json').
+            set('Authorization', userToken)
         });
     }
 
@@ -67,15 +68,17 @@ export class UserPortalService {
         const token = 'Bearer ' + user.token;
         console.log(token);
         return this.httpClient.post(this.sharedService.getUrl() + 'parties/company/invoice/create', companyData,
-            {
-                headers: new HttpHeaders().set('Accept', 'application/json').
-                set('Content-Type', 'application/json').set('Authorization', token)
-            });
+        {
+            headers: new HttpHeaders().
+            set('Accept', 'application/json').
+            set('Content-Type', 'application/json').
+            set('Authorization', token)
+        });
     }
 
     public downloadQuote(quoteData: any, userToken) {
         const token = 'Bearer ' + userToken;
-        console.log(token);
+        // console.log(token);
         return this.httpClient.post(this.sharedService.getUrl() + 'parties/company/quotation', quoteData,
         {
             headers: new HttpHeaders().
@@ -83,7 +86,6 @@ export class UserPortalService {
             set('Content-Type', 'application/json').
             set('Authorization', token)
         });
-
     }
     // parties/company/invoice
 
@@ -100,14 +102,15 @@ export class UserPortalService {
     }
 
     uploadProfilePic(image, token) {
-
         const tokens = 'Bearer ' + token;
         console.log(token);
         return this.httpClient.post(this.sharedService.getUrl() + 'parties/persons/avatars', image,
-            {
-                headers: new HttpHeaders().set('Accept', 'application/json').
-                    set('Content-Type', 'application/json').set('Authorization', tokens)
-            });
+        {
+            headers: new HttpHeaders().
+            set('Accept', 'application/json').
+            set('Content-Type', 'application/json').
+            set('Authorization', tokens)
+        });
     }
 
     getProfilePic(userID, token) {
@@ -127,6 +130,5 @@ export class UserPortalService {
             headers: new HttpHeaders().set('Accept', 'application/json').
             set('Content-Type', 'application/json').set('Authorization', userToken)
         });
-
     }
 }

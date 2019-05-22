@@ -14,7 +14,7 @@ export class AdminService {
 
     public getAllUsers(token): Observable<any> {
         var userToken = 'Bearer ' + token;
-        console.log(userToken);
+        //console.log(userToken);
         return this.httpClient.get(this.sharedService.getUrl() + 'admin/accounts',
             {
                 headers: new HttpHeaders().set('Accept', 'application/json').
@@ -24,7 +24,7 @@ export class AdminService {
 
     public getAllCompanies(token): Observable<any> {
         var userToken = 'Bearer ' + token;
-        console.log(userToken);
+        //console.log(userToken);
         return this.httpClient.get(this.sharedService.getUrl() + 'parties/company/invoice/retrieve/all',
             {
                 headers: new HttpHeaders().
@@ -36,24 +36,26 @@ export class AdminService {
 
     public getAllInvoices(token): Observable<any> {
         var userToken = 'Bearer ' + token;
-        console.log(userToken);
+        //console.log(userToken);
         return this.httpClient.get(this.sharedService.getUrl() + 'parties/company/invoice/all',
             {
-                headers: new HttpHeaders().set('Accept', 'application/json').
-                    set('Content-Type', 'application/json').set('Authorization', userToken)
+                headers: new HttpHeaders().
+                set('Accept', 'application/json').
+                set('Content-Type', 'application/json').
+                set('Authorization', userToken)
             });
-
     }
 
     public getAllQuotes(token): Observable<any> {
         var userToken = 'Bearer ' + token;
-        console.log(userToken);
+        // console.log(userToken);
         return this.httpClient.get(this.sharedService.getUrl() + 'parties/company/quotes/all',
             {
-                headers: new HttpHeaders().set('Accept', 'application/json').
-                    set('Content-Type', 'application/json').set('Authorization', userToken)
+                headers: new HttpHeaders().
+                set('Accept', 'application/json').
+                set('Content-Type', 'application/json').
+                set('Authorization', userToken)
             });
-
     }
 
     public getCompany(token: string, companyOid: string) {
@@ -112,5 +114,4 @@ export class AdminService {
                 set('Authorization', token)
             });
     }
-
 }

@@ -6,7 +6,6 @@
 <div class="container" id="wrapper">
   <!-- Page Content -->
 
-  <br>
   <div class="container">
 
     <div class="row">
@@ -19,8 +18,6 @@
       <div class="col-md-3">
         <a class="thumbnail">
           <img src="assets/img/userProfile.png" class="image rounded mx-auto d-block img-responsive" style="height: 180px; width: 200px">
-          <!-- <img src="assets/img/userProfile.png" class="image rounded mx-auto d-block img-responsive" /> -->
-          <!-- img src="{{image  == null ? avator : 'data:image/jpg;base64,'+ image }}" -->
         </a>
         <div class="text-center" style="color:#1b75bb">
           <h5>Company Logo</h5>
@@ -58,7 +55,6 @@
           </tr>
 
         </div>
-
       </div>
     </div>
   </div>
@@ -72,9 +68,9 @@
         <div class="table-responsive responsive-table">
           <div class="input-group">
             <span class="input-group-btn">
-              <button class="btn btn-default" type="button">Search </button>
+              <button class="btn btn-default" type="button">Search</button>
             </span>
-            <input type="text" class="form-control" style="width:30%" ng-model="expression">
+            <input type="text" class="form-control" ng-model="expression">
             <span class="input-group-btn">
               <button class="btn btn-primary" type="button" (click)="addCompany(company)">Add Company</button>
             </span>

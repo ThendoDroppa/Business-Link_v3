@@ -116,7 +116,7 @@
                                 <tbody class="hovering" >
                                     <tr *ngFor="let quote of quotes; let i = index" (click)="viewQuote(quote)">
                                         <td>{{(1 + i )}}</td>
-                                        <td>{{company.companyName}}</td>
+                                        <td>{{quote.companyName}}</td>
                                         <td>{{quote.generatedDate}}</td>
                                         <td>{{quote.reference}}</td>
                                         <td>{{quote.recipientName}}</td>
@@ -149,10 +149,10 @@
                                         <th>Recipient Phone</th>
                                     </tr>
                                 </thead>
-                                <tbody class="hovering">                              
-                                    <tr *ngFor="let invoice of invoices; let i = index" (click)="viewInvoice(invoice)">
+                                <tbody class="hovering">                             
+                                    <tr *ngFor="let invoice of invoices; let company of companies; let i = index" (click)="viewInvoice(invoice)">
                                         <td>{{(1 + i )}}</td>
-                                        <td>{{"Company Name"}}</td>
+                                        <td>{{invoice.companyName}}</td>
                                         <td>{{invoice.generatedDate}}</td>
                                         <td>{{invoice.reference}}</td>
                                         <td>{{invoice.recipientName}}</td>

@@ -12,7 +12,7 @@ export class ViewCompanyComponent implements OnInit {
     this.company = JSON.parse(localStorage.getItem('company'));
     this.adminObj = JSON.parse(localStorage.getItem('userInfo'));
     console.log(this.company);
-    console.log(this.adminObj);
+    // console.log(this.adminObj);
     // console.log(this.company.companyName);
   }
 

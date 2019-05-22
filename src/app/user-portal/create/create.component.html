@@ -80,8 +80,10 @@
                       <span class="input-group-addon">
                         <i class="glyphicon glyphicon-user"></i>
                       </span>
-                      <input type="text" class="form-control c" size="60" maxlength="255" [(ngModel)]="receipentName" name="name" id="receipentname"
-                        placeholder="Recipient Name" name="receipentname" pattern="[a-zA-Z ]*" #receipentname='ngModel' required>
+                      <input type="text" class="form-control c" size="60" maxlength="255" 
+                             [(ngModel)]="receipentName" name="name" id="receipentname"
+                             placeholder="Recipient Name" name="receipentname" 
+                             pattern="[a-zA-Z ]*" #receipentname='ngModel' required>
                     </div>
                     <p *ngIf="receipentname.errors && (receipentname.dirty || receipentname.touched)">
                       <span [hidden]="!receipentname.errors.required" style="color:red;">Enter your receipent name</span>
@@ -91,33 +93,38 @@
                       <span class="input-group-addon">
                         <i class="glyphicon glyphicon-envelope"></i>
                       </span>
-                      <input type="email" class="form-control c"size="60" maxlength="255"   name="email" required [(ngModel)]="email" id="autocomplete2" placeholder="Recipient Email Address"
-                      required >
+                      <input type="email" class="form-control c" size="60" maxlength="255" 
+                             name="email" required [(ngModel)]="email" id="autocomplete2" 
+                             placeholder="Recipient Email Address" required >
                     </div>
 
                     <div class="form-group input-group">
                       <span class="input-group-addon">
                         <i class="glyphicon glyphicon-phone" aria-hidden="true"></i>
                       </span>
-                      <input type="tel" class="form-control" name="phone" [(ngModel)]="phone" id="phone"  placeholder="Recipient Phone Number" size="60" required step="1" maxlength="10" minlength="10" pattern="[0-9]*"  required >
+                      <input type="tel" class="form-control" name="phone" 
+                             [(ngModel)]="phone" id="phone" placeholder="Recipient Phone Number" 
+                             size="60" required step="1" maxlength="10" 
+                             minlength="10" pattern="[0-9]*" required >
                     </div>
 
                     <div class="form-group input-group">
                       <span class="input-group-addon">
                         <i class="glyphicon glyphicon-info-sign" aria-hidden="true"></i>
                       </span>
-                      <input type="text" class="form-control" name="ref" [(ngModel)]="ref" id="mytext"  required placeholder="Enter the reference number">
+                      <input type="text" class="form-control" name="ref" 
+                             [(ngModel)]="ref" id="mytext" required 
+                             placeholder="Enter the reference number">
                     </div>
 
-                    <p style="color:#000;">Address may be blank if not applicable(Optional)</p>
                     <div class="form-group input-group">
                       <span class="input-group-addon">
                         <i class="glyphicon glyphicon-home"></i>
                       </span>
-                      <input type="text" class="form-control rap" name="address" [(ngModel)]="address" placeholder="Address line 1(Optional).">
-                      <input type="text" class="form-control rap" name="addressLocalty" [(ngModel)]="addressLocalty" placeholder="Address locality(Optional).">
-                      <input type="text" class="form-control rap" name="addressCity" [(ngModel)]="addressCity" placeholder="Address City(Optional).">
-                      <input type="text" class="form-control rap" name="addressCode" [(ngModel)]="addressCode" style="width:220px" placeholder="Address Postal code(Optional)."
+                      <input type="text" class="form-control rap" name="address" [(ngModel)]="address" placeholder="Address line 1.">
+                      <input type="text" class="form-control rap" name="addressLocalty" [(ngModel)]="addressLocalty" placeholder="Address locality.">
+                      <input type="text" class="form-control rap" name="addressCity" [(ngModel)]="addressCity" placeholder="Address City.">
+                      <input type="text" class="form-control rap" name="addressCode" [(ngModel)]="addressCode" style="width:220px" placeholder="Address Postal code."
                       size="60" required step="1" maxlength="4" minlength="4" pattern="[0-9]*" required>
                     </div>
                   </form>

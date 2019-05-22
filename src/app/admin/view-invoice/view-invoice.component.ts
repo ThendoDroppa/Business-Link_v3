@@ -17,6 +17,7 @@ export class ViewInvoiceComponent implements OnInit {
   resp: any;
   Billpdf: any;
   resultMsg: string;
+  newtotalNumber: number;
 
   constructor(private admin: AdminService) {
     this.company = JSON.parse(localStorage.getItem('CompanyInvoice'));
@@ -41,12 +42,13 @@ export class ViewInvoiceComponent implements OnInit {
     );
   }
 
-  public totalAmont(): number {
+  public totalAmont() {
     var totalPrice = 0.0;
     for (var i = 0; i < this.invoice.listOfInvoice.length; i++) {
-      totalPrice = totalPrice + (this.invoice.listOfInvoice[i].price * this.invoice.listOfInvoice[i].quantity);
+      totalPrice = totalPrice + (((this.invoice.listOfInvoice[i].price * this.invoice.listOfInvoice[i].quantity)) * (this.invoice.salesTax / 100)) + (this.invoice.listOfInvoice[i].price * this.invoice.listOfInvoice[i].quantity);
     }
-    return totalPrice;
+    var newtotalPrice = totalPrice - this.invoice.discountAmt;
+    return newtotalPrice;
   }
 
   downloadFile() {

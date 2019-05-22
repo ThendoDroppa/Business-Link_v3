@@ -8,13 +8,13 @@ import {Router} from '@angular/router';
 })
 export class NavBarDashboardComponent implements OnInit {
 
-  constructor(private route : Router) { }
+  constructor(private route: Router) { }
 
   ngOnInit() {
   }
 
   logout() {
-    localStorage.removeItem('userInfo')
+    localStorage.removeItem('userInfo');
     this.route.navigateByUrl('/');
   }
 }

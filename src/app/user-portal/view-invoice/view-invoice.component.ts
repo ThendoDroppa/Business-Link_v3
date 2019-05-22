@@ -31,6 +31,8 @@ export class ViewCompanyInvoiceComponent implements OnInit {
     this.tax = (this.invoice.salesTax == null) ? 0.0 : this.invoice.salesTax;
     this.discount = (this.invoice.discountAmt == null) ? 0.0 : this.invoice.discountAmt;
     this.totalAmount = ((this.totalAmont() + (this.totalAmont() * (this.tax / 100))) - this.discount);
+    //console.log(this.totalAmont());
+    //console.log(((this.totalAmont() * (this.tax / 100))));
   }
 
   public totalAmont() {

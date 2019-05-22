@@ -531,6 +531,7 @@ header.page-header .main-menu.minified{
   width: 16px;
 }
 .intro-text{
+    /* One of the pictures in the background */
     background: url(/assets/img/BACKGROUND-PIC.png) no-repeat bottom right;    
     background-size: cover;
     position: relative;
@@ -540,7 +541,6 @@ header.page-header .main-menu.minified{
 
 /* Home Style */
 header {
-    
       background: url(/assets/img/BACKGROUND-PIC.png) no-repeat bottom right;
       background-size: cover;
       color:#63bc4c;

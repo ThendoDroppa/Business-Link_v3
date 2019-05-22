@@ -2,7 +2,7 @@
   <img src="./assets/img/loader.gif" id="loading-image">
   <h4 class="text-center loader-header">Please wait...</h4>
 </div>
-<div class="container well">
+<div class="container well" style="width: 640px;">
   <br><br><br><br><br><br>
   <div class="box" bgcolor='#e4e4e4' text='#ff6633' link='#666666' vlink='#666666' alink='#ff6633' >
       
@@ -58,14 +58,10 @@
                                 </tr>
                                 <tr >
                                   <td valign='top' style='color:#404041;font-size:12px;padding:0px 5px 0px 5px'>
-                                  
                                       {{ company != undefined ? company.addressLine1 : '' }}<br>
                                       {{ company != undefined ? company.addressLocality : '' }}<br>
                                       {{ company != undefined ? company.addressTown : '' }}<br>
-                                      {{ company != undefined ? company.postalCode : '' }}<br>
-                                  
-                                
-                                                                                          
+                                      {{ company != undefined ? company.postalCode : '' }}<br>                                                
                                   </td>
                                 </tr>
                                 <tr>
@@ -77,8 +73,7 @@
                                 <tr>
                                   <td valign='top' style='color:#404041;font-size:12px;padding:0px 5px 0px 5px'>
                                     <p>
-                                      <a href='tel:061%937%0266%' value='+27619370266' target='_blank'>{{
-                                          company != undefined ? company.telephone : ''}}</a><br>
+                                      <a href='tel:061%937%0266%' value='+27619370266' target='_blank'>{{ company != undefined ? company.telephone : ''}}</a><br>
                                     </p>
                                                                                           
                                   </td>
@@ -221,7 +216,7 @@
                         
                         <tr>
                           <td align='left' valign='top' style='color:#404041;font-size:12px;line-height:16px;padding:5px 0px 3px 0px;border-bottom:solid 1px #999999'>
-                            <strong>Discount Amt:</strong>
+                            <strong>Discount Amount:</strong>
                           </td>
                           <td width='62' align='right' valign='top' style='color:#404041;font-size:12px;line-height:16px;padding:5px 5px 3px 5px;border-bottom:solid 1px #999999'>
                             {{quote.discountAmt | currency:"R"}}
@@ -248,7 +243,7 @@
         </tr>
       </tbody>
     </table>
-    <button type="submit"  class="btn addbtn pull-right" style="background-color: #a6ce6f;" ng-disabled="image == null" (click)="downloadFile()">Download Quote</button>
+    <button type="submit" class="btn addbtn pull-right" style="background-color: #a6ce6f;" ng-disabled="image == null" (click)="downloadFile()">Download Quote</button>
   </div>
   </div>	
   

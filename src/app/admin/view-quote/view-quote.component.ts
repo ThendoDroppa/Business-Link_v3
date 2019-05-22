@@ -16,28 +16,33 @@ export class ViewQuoteComponent implements OnInit {
   resp: any;
   Billpdf: any;
   resultMsg: string;
+  tax: number;
+  discount: number;
+  totalAmount: number;
+  newtotalNumber: number;
 
   constructor(private admin: AdminService) {
     this.quote = JSON.parse(localStorage.getItem('quote'));
     this.adminObj = JSON.parse(localStorage.getItem('userInfo'));
-    console.log(this.quote);
+    console.log(this.quote.salesTax / 100);
+    console.log(this.quote.discountAmt);
   }
 
   ngOnInit() {
     this.admin.getCompany(this.adminObj.token, this.quote.companyOid).subscribe(
       (res) => {
         this.company = res;
-        console.log(this.company);
       }
     );
   }
 
-  public totalAmont(): number {
+  public totalAmont() {
     var totalPrice = 0.0;
     for (var i = 0; i < this.quote.listOfInvoice.length; i++) {
-      totalPrice = totalPrice + (this.quote.listOfInvoice[i].price * this.quote.listOfInvoice[i].quantity);
-    };
-    return totalPrice;
+      totalPrice = totalPrice + (((this.quote.listOfInvoice[i].price * this.quote.listOfInvoice[i].quantity)) * (this.quote.salesTax / 100)) + (this.quote.listOfInvoice[i].price * this.quote.listOfInvoice[i].quantity);
+    }
+    var newtotalPrice = totalPrice - this.quote.discountAmt;
+    return newtotalPrice;
   }
 
   downloadFile() {
@@ -63,7 +68,7 @@ export class ViewQuoteComponent implements OnInit {
       },
       "listOfInvoice": this.quote.listOfInvoice,
       "actionType": "download",
-      "image": this.company.base64Logo
+      // "image": this.company.base64Logo
     };
     this.loader = true;
     this.admin.downloadInvoice(invoiceData, this.adminObj.token).subscribe(
@@ -77,7 +82,7 @@ export class ViewQuoteComponent implements OnInit {
           a.setAttribute("id", "qtlink")
           // a.style = "display: none";
 
-          document.getElementById('qtlink').title = this.company.companyName + "-" + invoiceData.reference + '.pdf';
+          document.getElementById('qtlink').title = this.quote.companyName + "-" + invoiceData.reference + '.pdf';
           var elementTitle = document.getElementById('qtlink').title;
           a.setAttribute("download", elementTitle);
           a.href = this.Billpdf;

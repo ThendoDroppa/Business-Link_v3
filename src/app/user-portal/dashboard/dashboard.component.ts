@@ -35,27 +35,22 @@ export class DashboardComponent implements OnInit {
     this.userPortal.getCompanyInfor(this.userPortalObj.token, this.userPortalObj.owner.oid).subscribe(
       (res) => {
         this.companies = res;
-        console.log(this.companies);
       }
     );
     this.getProfilePicture();
-    console.log('Hello Dashboard');
   }
 
   public viewQuotes(company) {
-    console.log(company);
     localStorage.setItem('CompanyQuote', JSON.stringify(company));
     this.route.navigateByUrl('/quotation');
   }
 
   public viewInvoice(company) {
-    console.log(company);
     localStorage.setItem('CompanyInvoice', JSON.stringify(company));
     this.route.navigateByUrl('/invoice');
   }
 
   public addCompany(company) {
-    localStorage.setItem('Company', JSON.stringify(company));
     this.route.navigateByUrl('/addCompany');
   }
 
@@ -64,7 +59,7 @@ export class DashboardComponent implements OnInit {
     this.userPortal.getProfilePic(JSON.parse(localStorage.getItem('userInfo')).owner.oid, this.userToken).subscribe(
       (res: any) => {
         this.image = res.base64Image;
-        console.log(this.image);
+        // console.log(this.image);
         this.loader = false;
       }, (error) => {
         this.loader = false;

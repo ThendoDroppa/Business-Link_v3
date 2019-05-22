@@ -28,7 +28,8 @@ export class AdminComponent implements OnInit {
   ngOnInit() {
     this.adminObj =  JSON.parse(localStorage.getItem('userInfo'));
     this.company = JSON.parse(localStorage.getItem('CompanyInvoice'));
-    console.log(this.adminObj);
+    // console.log(this.company);
+    // console.log(this.adminObj);
     this.getUsers(this.adminObj.token);
     this.getInvoices(this.adminObj.token);
     this.getQuotes(this.adminObj.token);
@@ -47,7 +48,6 @@ export class AdminComponent implements OnInit {
     this.admin.getAllCompanies(token).subscribe(
       (res) => {
         this.companies = res;
-        console.log(this.companies);
       }
     );
   }
@@ -64,31 +64,30 @@ export class AdminComponent implements OnInit {
     this.admin.getAllQuotes(token).subscribe(
       (res) => {
         this.quotes = res;
-        console.log(this.quotes);
       }
     );
   }
 
   public viewCompany(company) {
-    console.log(company);
+    // console.log(company);
     localStorage.setItem('company', JSON.stringify(company));
     this.route.navigateByUrl('/viewCompany');
   }
 
   public viewUser(user) {
-    console.log(user);
+    // console.log(user);
     localStorage.setItem('user', JSON.stringify(user));
     this.route.navigateByUrl('/viewUser-Admin');
   }
 
   public viewQuote(quote) {
-    console.log(quote);
+    // console.log(quote);
     localStorage.setItem('quote', JSON.stringify(quote));
     this.route.navigateByUrl('/viewQuote-Admin');
   }
 
   public viewInvoice(invoice) {
-    console.log(invoice);
+    // console.log(invoice);
     localStorage.setItem('invoice', JSON.stringify(invoice));
     this.route.navigateByUrl('/viewInvoice-Admin');
   }

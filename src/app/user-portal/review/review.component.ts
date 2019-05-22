@@ -6,7 +6,6 @@ import { UserPortalService } from '../../services/userPortal.service';
 import { from } from 'rxjs/observable/from';
 import { Company } from '../../models/company';
 import { User } from '../../models/user';
-import * as jsPDF from 'jspdf';
 
 @Component({
   selector: 'app-review',
@@ -15,7 +14,6 @@ import * as jsPDF from 'jspdf';
 })
 
 export class ReviewComponent implements OnInit {
-
   // @ViewChild('myBankForm') bankForm : NgForm;
   userPortalObj: any;
   company: any;
@@ -44,20 +42,12 @@ export class ReviewComponent implements OnInit {
   resp: any;
   total: any;
 
-
-  // createInvoice: any;
-  // style: any;
-  // resetForm: any;
-
   constructor(private userPortal: UserPortalService, private route: Router) { }
 
   ngOnInit() {
     this.userPortalObj = JSON.parse(localStorage.getItem('userInfo'));
     this.company = JSON.parse(localStorage.getItem('CompanyQuote'));
     this.invoiceData = JSON.parse(localStorage.getItem('data'));
-    console.log(this.company);
-    console.log(this.userPortalObj);
-    console.log(this.invoiceData.listOfInvoice);
   }
 
   onFormSubmit(form: NgForm, bankForm: NgForm) {
@@ -69,7 +59,7 @@ export class ReviewComponent implements OnInit {
     if (this.invoice !== undefined || this.quote !== undefined) {
       if (this.invoice !== undefined) {
         this.email = this.company.email;
-        console.log(this.email);
+        // console.log(this.email);
         // this.listOfInvoice = this.invoiceData.listOfInvoice;
         this.loader = true;
 
@@ -99,24 +89,15 @@ export class ReviewComponent implements OnInit {
               'image': this.company.base64Logo,
             };
 
-          console.log(this.invoiceData.listOfInvoice[1].description);
-          console.log(this.invoiceData.listOfInvoice[0].description);
-          
-          console.log({invoiceDataObj});
-          console.log(this.company.base64Logo);
-
           this.userPortal.downloadInvoice(invoiceDataObj, this.userPortalObj.token).subscribe(
             (res) => {
               console.log(res);
               this.resp = res;
-              console.log(this.resp);
-              console.log(invoiceDataObj);
-              console.log(this.userPortalObj.token);
 
               if (this.resp.fileBytes != null) {
-                console.log(this.resp.fileBytes);
+                // console.log(this.resp.fileBytes);
                 this.Billpdf = 'data:application/octet-stream;base64,' + this.resp.fileBytes;
-                console.log(this.Billpdf);
+                // console.log(this.Billpdf);
                 const a = document.createElement('a');
                 document.body.appendChild(a);
                 a.setAttribute('id', 'qtlink');
@@ -124,7 +105,7 @@ export class ReviewComponent implements OnInit {
 
                 document.getElementById('qtlink').title = this.company.companyName + '-' + this.invoiceData.reference + '.pdf';
                 const elementTitle = document.getElementById('qtlink').title;
-                console.log(elementTitle);
+                // console.log(elementTitle);
                 a.setAttribute('download', elementTitle);
                 a.href = this.Billpdf;
                 a.click();
@@ -138,7 +119,7 @@ export class ReviewComponent implements OnInit {
             }
           );
 
-          console.log('Invoice created');
+          // console.log('Invoice created');
 
           this.isValidFormSubmitted = true;
           this.bill = form.controls['bill'].value;

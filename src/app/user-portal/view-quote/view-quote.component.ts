@@ -26,20 +26,21 @@ export class ViewCompanyQuoteComponent implements OnInit {
     this.quote = JSON.parse(localStorage.getItem('quotes'));
     this.company = JSON.parse(localStorage.getItem('CompanyQuote'));
     this.userPortalObj = JSON.parse(localStorage.getItem('userInfo'));
-    console.log(this.company);
+    // console.log(this.company);
   }
 
   ngOnInit() {
     this.tax = (this.quote.salesTax == null) ? 0.0 : this.quote.salesTax;
     this.discount = (this.quote.discountAmt == null) ? 0.0 : this.quote.discountAmt;
-    this.totalAmount = ((this.totalAmont() + (this.totalAmont() * (this.tax / 100))) - this.discount);
-    console.log(this.quote);
+    this.totalAmount = ((this.totalAmont() + ((this.totalAmont() * (this.tax / 100)))) - this.discount);
+    // console.log(this.totalAmont());
+    // console.log(((this.totalAmont() * (this.tax / 100))));
   }
 
   public totalAmont() {
     var totalPrice = 0.0;
     for (var i = 0; i < this.quote.listOfInvoice.length; i++) {
-      totalPrice = totalPrice + (this.quote.listOfInvoice[i].price * this.quote.listOfInvoice[i].quantity);
+      totalPrice = totalPrice + ((this.quote.listOfInvoice[i].price * this.quote.listOfInvoice[i].quantity));
     }
     return totalPrice;
   }
@@ -83,7 +84,6 @@ export class ViewCompanyQuoteComponent implements OnInit {
           document.getElementById('qtlink').title = this.company.companyName + '-' + this.quote.reference + '.pdf';
           var elementTitle = document.getElementById('qtlink').title;
           this.a.setAttribute('download', elementTitle);
-
           // var dlnk = document.getElementById('DIDCdwnldLnk');
           this.a.href = this.Billpdf;
           this.a.click();

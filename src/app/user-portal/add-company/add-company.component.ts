@@ -55,6 +55,8 @@ export class AddCompanyComponent implements OnInit {
         console.log(res);
         this.loader = false;
         this.msg = 'Company successfully added!';
+        window.alert(this.msg);
+        this.route.navigateByUrl('/dashboard');
       },
       (error) => {
         console.log(error);
