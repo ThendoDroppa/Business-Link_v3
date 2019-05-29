@@ -24,8 +24,8 @@ export class ViewQuoteComponent implements OnInit {
   constructor(private admin: AdminService) {
     this.quote = JSON.parse(localStorage.getItem('quote'));
     this.adminObj = JSON.parse(localStorage.getItem('userInfo'));
-    console.log(this.quote.salesTax / 100);
-    console.log(this.quote.discountAmt);
+    // console.log(this.quote.salesTax / 100);
+    // console.log(this.quote.discountAmt);
   }
 
   ngOnInit() {

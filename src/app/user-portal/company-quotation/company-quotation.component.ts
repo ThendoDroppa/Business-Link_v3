@@ -19,13 +19,15 @@ export class CompanyQuotationComponent implements OnInit {
   ngOnInit() {
     this.company = JSON.parse(localStorage.getItem('CompanyQuote'));
     this.userPortalObj =  JSON.parse(localStorage.getItem('userInfo'));
-    this.comapyQuotes();
+    // this.comapyQuotes();
+    console.log(this.company);
   }
 
-  private comapyQuotes() {
+  public comapyQuotes() {
     this.userPortal.getCompanyQuotes(this.userPortalObj.token, this.company.oid).subscribe(
       (res) => {
         this.quotes = res;
+        console.log(this.quotes);
       }
     );
   }

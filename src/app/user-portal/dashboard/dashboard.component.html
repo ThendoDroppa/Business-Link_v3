@@ -17,7 +17,8 @@
     <div class="well col-md-8 col-sm-8 col-md-offset-2" id="companyDetails">
       <div class="col-md-3">
         <a class="thumbnail">
-          <img src="assets/img/userProfile.png" class="image rounded mx-auto d-block img-responsive" style="height: 180px; width: 200px">
+          <img src="assets/img/userProfile.png" class="image rounded mx-auto d-block img-responsive"
+            style="height: 180px; width: 200px">
         </a>
         <div class="text-center" style="color:#1b75bb">
           <h5>Company Logo</h5>
@@ -65,7 +66,8 @@
     </div>
     <div class="panel-body ">
       <div class="table-responsive responsive-table col-md-12 col-sm-12">
-        <div class="table-responsive responsive-table">
+        <div class="table-responsive responsive-table tableTopMargin">
+
           <div class="input-group">
             <span class="input-group-btn">
               <button class="btn btn-default" type="button">Search</button>
@@ -75,6 +77,62 @@
               <button class="btn btn-primary" type="button" (click)="addCompany(company)">Add Company</button>
             </span>
           </div>
+          <!-- <div class="input-group">
+            <span class="input-group-btn">
+              <button class="btn btn-default" type="button">Search</button>
+            </span>
+
+
+            <input type="text" class="form-control" ng-model="expression">
+            <span class="input-group-btn">
+              <button class="btn btn-primary" type="button" (click)="addCompany(company)">Add Company</button>
+            </span>
+          </div> -->
+          <!-- style="width: 766px; top: 3px;" 
+          style="top: 3px; left: 3px" -->
+          <div class="input-group emailtextBox">
+            <span class="input-group-btn">
+              <button class="btn btn-default" type="button">E-mail</button>
+            </span>
+            <input size="60" required maxlength="255" class="form-control" [(ngModel)]="email"
+              name="UserRegistration[email]" id="email" type="email" email>
+            <span class="input-group-btn">
+              <button class="btn btn-primary" type="button" (click)="addUserToCompany()">Add
+                User</button>
+            </span>
+          </div>
+
+          <div class="modal fade" id="successDialog" role="dialog">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-body">
+                  <p style="color: green;">{{ msg }}</p>
+                  <p style="color: red;">{{ msg }}</p>
+                  <div class="row">
+                    <div class="col-12-xs text-center">
+                      <button class="btn btn-success btn-md" data-dismiss="modal">Close</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- <div class="modal fade" id="errorDialog" role="dialog">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-body">
+                  <p style="color: #FF0000;">{{ msg }}</p>
+                  <div class="row">
+                    <div class="col-12-xs text-center">
+                      <button class="btn btn-danger btn-md" data-dismiss="modal">Close</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div> -->
+
           <table class="table table-responsive responsive-table ">
             <thead class="thead-inverse">
               <tr>

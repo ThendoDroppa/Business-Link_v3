@@ -9,16 +9,18 @@ import { User } from '../models/user';
 @Injectable()
 export class AdminService {
 
-    constructor(private http: Http, private httpClient: HttpClient, private sharedService: SharedService) {
+    constructor(private httpClient: HttpClient, private sharedService: SharedService) {
     }
 
     public getAllUsers(token): Observable<any> {
         var userToken = 'Bearer ' + token;
-        //console.log(userToken);
+        // console.log(userToken);
         return this.httpClient.get(this.sharedService.getUrl() + 'admin/accounts',
             {
-                headers: new HttpHeaders().set('Accept', 'application/json').
-                    set('Content-Type', 'application/json').set('Authorization', userToken)
+                headers: new HttpHeaders().
+                set('Accept', 'application/json').
+                set('Content-Type', 'application/json').
+                set('Authorization', userToken)
             });
     }
 
@@ -36,45 +38,49 @@ export class AdminService {
 
     public getAllInvoices(token): Observable<any> {
         var userToken = 'Bearer ' + token;
-        //console.log(userToken);
+        console.log(userToken);
         return this.httpClient.get(this.sharedService.getUrl() + 'parties/company/invoice/all',
-            {
-                headers: new HttpHeaders().
-                set('Accept', 'application/json').
-                set('Content-Type', 'application/json').
-                set('Authorization', userToken)
-            });
+        {
+            headers: new HttpHeaders().
+            set('Accept', 'application/json').
+            set('Content-Type', 'application/json').
+            set('Authorization', userToken)
+        });
     }
 
     public getAllQuotes(token): Observable<any> {
         var userToken = 'Bearer ' + token;
-        // console.log(userToken);
+        console.log(userToken);
         return this.httpClient.get(this.sharedService.getUrl() + 'parties/company/quotes/all',
-            {
-                headers: new HttpHeaders().
-                set('Accept', 'application/json').
-                set('Content-Type', 'application/json').
-                set('Authorization', userToken)
-            });
+        {
+            headers: new HttpHeaders().
+            set('Accept', 'application/json').
+            set('Content-Type', 'application/json').
+            set('Authorization', userToken)
+        });
     }
 
     public getCompany(token: string, companyOid: string) {
         // parties/company/invoice/retrieve/'+$scope.quote.companyOid
         var userToken = 'Bearer ' + token;
         return this.httpClient.get(this.sharedService.getUrl() + 'parties/company/invoice/retrieve/' + companyOid,
-            {
-                headers: new HttpHeaders().set('Accept', 'application/json').
-                    set('Content-Type', 'application/json').set('Authorization', userToken)
-            });
+        {
+            headers: new HttpHeaders().
+            set('Accept', 'application/json').
+            set('Content-Type', 'application/json').
+            set('Authorization', userToken)
+        });
     }
 
     public downloadQuote(quoteData: any, userToken) {
         var token = 'Bearer ' + userToken;
         return this.httpClient.post(this.sharedService.getUrl() + 'parties/company/quotation', quoteData,
-            {
-                headers: new HttpHeaders().set('Accept', 'application/json').
-                    set('Content-Type', 'application/json').set('Authorization', token)
-            });
+        {
+            headers: new HttpHeaders().
+            set('Accept', 'application/json').
+            set('Content-Type', 'application/json').
+            set('Authorization', token)
+        });
     }
 
     public downloadInvoice(invoiceData: any, userToken) {

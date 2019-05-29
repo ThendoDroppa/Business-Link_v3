@@ -2,16 +2,14 @@ import { Injectable } from '@angular/core';
 import { Http, Headers, RequestOptions } from '@angular/http';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
-
 import { SharedService } from './../services/shared.service';
 import { User } from '../models/user';
 
 @Injectable()
 export class UserPortalService {
 
-    constructor(private http: Http, private httpClient: HttpClient, private sharedService: SharedService) { }
+    constructor(private httpClient: HttpClient, private sharedService: SharedService) { }
 
-    // get company's information by users ID
     public getCompanyInfor(token, owneroid): Observable<any> {
         const userToken = 'Bearer ' + token;
         return this.httpClient.get(this.sharedService.getUrl() + 'parties/company/invoice/list/' + owneroid,
@@ -23,9 +21,9 @@ export class UserPortalService {
         });
     }
 
-    // get company's invoice by company ID
     public getCompanInvoice(token, companyOid): Observable<any> {
         const userToken = 'Bearer ' + token;
+        console.log(userToken);
         return this.httpClient.get(this.sharedService.getUrl() + 'parties/bill/documents/retrieve/invoice/' + companyOid,
         {
             headers: new HttpHeaders().
@@ -37,6 +35,7 @@ export class UserPortalService {
 
     public getCompanyQuotes(Usertoken, companyOid): Observable<any> {
         const userToken = 'Bearer ' + Usertoken;
+        console.log(userToken);
         return this.httpClient.get(this.sharedService.getUrl() + 'parties/bill/documents/retrieve/quotes/' + companyOid,
         {
             headers: new HttpHeaders().
@@ -47,7 +46,6 @@ export class UserPortalService {
     }
 
     public addNewCompany(user: any, company: any): Observable<any> {
-        console.log(user);
         const companyData = {
             'director': company.director,
             'telephone': company.telephone,
@@ -61,18 +59,29 @@ export class UserPortalService {
             'base64Logo': company.base64Logo,
             'owner': user.owner.oid
         };
-        console.log(company.companyRegistrationNo);
-        console.log(company.email);
-        console.log(companyData);
-
         const token = 'Bearer ' + user.token;
-        console.log(token);
         return this.httpClient.post(this.sharedService.getUrl() + 'parties/company/invoice/create', companyData,
         {
             headers: new HttpHeaders().
             set('Accept', 'application/json').
             set('Content-Type', 'application/json').
             set('Authorization', token)
+        });
+    }
+
+    public addUser(user: any, token) {
+        const companyOid = {
+            'email': user.email,
+            'companyOid': user.companyOid // company.oid
+        };
+        const userToken = 'Bearer ' + token;
+        console.log(userToken);
+        return this.httpClient.post(this.sharedService.getUrl() + 'parties/company/invoice/add/users', companyOid,
+        {
+            headers: new HttpHeaders().
+            set('Accept', 'application/json').
+            set('Content-Type', 'application/json').
+            set('Authorization', userToken)
         });
     }
 
@@ -87,7 +96,6 @@ export class UserPortalService {
             set('Authorization', token)
         });
     }
-    // parties/company/invoice
 
     public downloadInvoice(invoiceData: any, userToken) {
         const token = 'Bearer ' + userToken;
@@ -103,7 +111,7 @@ export class UserPortalService {
 
     uploadProfilePic(image, token) {
         const tokens = 'Bearer ' + token;
-        console.log(token);
+        // console.log(token);
         return this.httpClient.post(this.sharedService.getUrl() + 'parties/persons/avatars', image,
         {
             headers: new HttpHeaders().

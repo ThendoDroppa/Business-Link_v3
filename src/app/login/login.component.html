@@ -10,7 +10,7 @@
               <span class="input-group-addon">
                 <i class="fa fa-envelope"></i>
               </span>
-              <input type="text" class="form-control" [(ngModel)]="username" name="username" placeholder="Username">
+              <input type="text" class="form-control" [(ngModel)]="username" name="username" placeholder="E-mail">
             </div>
             <span class="help-block"></span>
 
@@ -21,8 +21,7 @@
               <input type="password" class="form-control" [(ngModel)]="password" name="password" placeholder="Password">
             </div>
             <span class="help-block">{{ errorMsg }}</span>
-            <button class="btn btn-lg btn-primary btn-block" type="submit" style="height:40px"
-              (click)="login()">Login</button>
+            <button class="btn btn-lg btn-primary btn-block" type="submit" style="height:40px" (click)="login()">Login</button>
           </form>
         </div>
       </div>

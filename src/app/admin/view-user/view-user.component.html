@@ -1,47 +1,38 @@
+<div class="row">
+  <br><br>
+  <div class="col-md-6 col-sm-7 col-xs-12">
+    <div id="w">
+      <div id="content" class="clearfix well col-md-offset-3">
+        <div id="userphoto"><img src="assets/img/avatar.png" alt="default avatar"></div>
+        <h1>User Profile</h1>
 
-      <div class="row"> 
-          <br><br>
-      <div class="col-md-6 col-sm-7 col-xs-12">
-      <div id="w">
-        <div id="content" class="clearfix well col-md-offset-3">
-          <div id="userphoto"><img src="assets/img/avatar.png" alt="default avatar"></div>
-          <h1>User Profile</h1>
-    
-          <nav id="profiletabs">
-            <ul class="clearfix">
-              <li><a style="cursor:pointer;" class="sel" data-toggle="tab">About</a></li>
-            </ul>
-          </nav>
-          
-          <section id="bio">
-            
-            <p class="setting"><span>E-mail Address: <img src="assets/img/id.png" alt="*Edit*"></span> {{user.owner.email}}</p>
-            
-            <p class="setting"><span>Names: <img src="assets/img/id.png" alt="*Edit*"></span> {{fullName}}</p>
-            
-            <p class="setting"><span>Cell Number: <img src="assets/img/id.png" alt="*Edit*"></span>{{user.owner.mobile}}</p>
-            
-            <p class="setting"><span>ID Number: <img src="assets/img/id.png" alt="*Edit*"></span> {{user.owner.rsaId}}</p>
-    
-            <p class="setting"><span>User Status: <img src="assets/img/id.png" alt="*Edit*"></span> {{user.status}}</p>
-          </section>
-          <hr>
-          <section id="activity">
-            <p><strong>Company Information:</strong></p>
-            <div class="col-md-offset-3" *ngFor="let company of companies; let i = index">
-               <p class="activity"><strong>{{(1 + i )+"."}}</strong>-{{company.companyName}}</p>
-            </div>
-          </section>
-          
+        <nav id="profiletabs">
+          <ul class="clearfix">
+            <li><a style="cursor:pointer;" class="sel" data-toggle="tab">About</a></li>
+          </ul>
+        </nav>
+
+        <section id="bio">
+          <p class="setting"><span>E-mail Address:</span>{{user.owner.email}}</p>
+          <p class="setting"><span>Names:</span> {{fullName}}</p>
+          <p class="setting"><span>Cell Number:</span>{{user.owner.mobile}}</p>
+          <p class="setting"><span>User Status:</span>{{user.status}}</p>
+        </section>
+        <hr>
+        <section id="activity">
+          <p><strong>Company Information:</strong></p>
+          <div class="col-md-offset-3" *ngFor="let company of companies; let i = index">
+            <p class="activity"><strong>{{(1 + i )+"."}}</strong>-{{company.companyName}}</p>
+          </div>
+        </section>
+
         <div class="col-md-offset-3" style=" margin-left: 260px;">
           <button class="btn btn-info" (click)="changeStatus()">{{btnText(user.status)}}</button>
           <p class="text-center">{{txt}}</p>
         </div>
-        </div><!-- @end #content -->
-      </div><!-- @end #w -->
-      </div>
-      
-    
-      </div>
-  
-     
+      </div><!-- @end #content -->
+    </div><!-- @end #w -->
+  </div>
+
+
+</div>

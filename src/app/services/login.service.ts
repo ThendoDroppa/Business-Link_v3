@@ -114,7 +114,7 @@ export class LoginService {
       'company': companyData
     };
 
-    console.log(data);
+    // console.log(data);
     const userToken = 'Bearer ' + token;
     const headers = new Headers();
     headers.append('Accept', 'application/json');

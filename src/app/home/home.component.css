@@ -44,7 +44,6 @@ p {
     width: 90%;
     margin: 0 auto;
 }
-
 .single_service2{
     margin-top: 90px;
 }
@@ -56,7 +55,6 @@ p {
     margin-top: -70px;
 
 }
-
 .single_service2 .single_service_right{
     display: inline-block;
     width: 70%;
@@ -71,8 +69,6 @@ p {
     margin: 0;
     font-family: 'Ubuntu';
 }
-
-
 .head_title h1{
     font-style: bold;
     text-shadow: 1px 1px black;
@@ -105,8 +101,6 @@ p {
     font-size: 30px !important;
     color:#63bc4c !important;
 }
-
-
 .featuredImg{
 	display:inline-block;
 	overflow: hidden;
@@ -156,18 +150,15 @@ input:hover{
 .contact-section .contact-address p{
 	margin-bottom: 25px;
 }
-
 .contact-section .contact-address ul li{
 	padding-left: 40px;
 	margin-bottom: 25px;
 	font-size: 14px;
 	position: relative;
 }
-
 .contact-section .contact-address ul li:last-child{
 	margin-bottom: 0;
 }
-
 .contact-section .contact-address ul li i{
 	position: absolute;
 	font-size: 18px;
@@ -182,7 +173,6 @@ input:hover{
 .contact-section .contact-form .input-fields{
 	margin-bottom: 20px;
 }
-
 .contact-section .contact-form .input-fields label{
 	display: block;
 	font-size: 14px;
@@ -190,7 +180,6 @@ input:hover{
 	font-weight: 400;
 	margin-bottom: 10px;
 }
-
 .contact-section .contact-form .input-fields input{
 	width: 100%;
 	height: 60px;
@@ -217,7 +206,6 @@ input:hover{
 	border: none;
 	color: #111111 !important;
 }
-
 .contact-section .contact-form input[type='submit']{
 	font-size: 14px;
 	font-weight: 700;
@@ -230,13 +218,10 @@ input:hover{
 	width: 100%;
 	background: #089EF5;
 }
-
-
 .contact-section .contact-form .input-fields input[type='submit']:hover{
 	color: #ffffff;
 	background-color: #de5c39;
 }
-
 .footer{
     padding-top: 40px;
     color:rgb(0, 0, 0);
@@ -269,11 +254,9 @@ input:hover{
 text-align: left;
 
 }
-
 #footer-main{
     background-color: #012b72;
 }
-
 #footer-sub h5{
 
     margin-top: 25px;
@@ -281,25 +264,21 @@ text-align: left;
     font-size: 20px;
     
 }
-
 #footer-sub ul{
     list-style: none;
     margin-top: 20px;
     
 }
-
 #footer-sub hr{
     margin: 5px;
 
 }
-
 #footer-sub ul li{
 margin-left: -38px;
 font-size: 20px;
 
 
 }
-
 #footer-sub ul li i{
     margin-left: -38px;
     font-size: 20px;
@@ -307,86 +286,65 @@ font-size: 20px;
     
     
     } 
-
 #footer-sub a:link {
     text-decoration: none;
     font-size: 15px;
     color:rgb(0, 0, 0);
 }
-
 #footer-sub a:visited {
     text-decoration: none;
     color:rgb(0, 0, 0);
 }
-
-
 #footer-sub a:hover {
     text-decoration: none;
     color: blue;
 }
-
-
 #footer-sub a:active {
     text-decoration: none;
     color:rgb(0, 0, 0);
 }
-
 .vertical-line{
     border-right: 1px solid #dbdbdb;
     margin: 8px;
     padding: 0px;
 }
-
 .glyphicon {
     font-size: 35px;
      color:#6d6c6c;
 }
-
 #sub-two{
     margin: 0px;
     padding: 0px;
 }
-
 #sub-two .vertical-line h4{
     color:#6d6c6c;
 }
-
-
 #footer-main ul{
     list-style: none;
 }
-
 #footer-main ul li{
     float:left;
     text-decoration: none;
     padding-left: 15px;
     margin-top: 17px;
 }
-
 #footer-main a:link {
     color:white;
     font-size: 12px;
 }
-
 #footer-main a:visited {
     color:white;
 }
-
-
 #footer-main a:hover {
     text-decoration: none;
     color: #00b9f5;
 }
-
-
 #footer-main a:active {
     color:#1b75bb;
 }
 #contact-section{
     padding-top: 50px;
 }
-
-
 .main-menu{
     /* background-color: #ffffff; */
     background-color: transparent;
@@ -405,7 +363,6 @@ font-size: 20px;
     -webkit-backface-visibility: hidden;
     text-align: center;
 }
-
 header.page-header .main-menu{
 	position: relative;
 }
@@ -442,18 +399,14 @@ header.page-header .main-menu{
     padding: 15px;
     text-transform: uppercase;
 }
-
 .main-menu .navbar-nav li a:hover,
 .main-menu .navbar-nav li.active a{
     background-color: transparent;
     color: #1b75bb;
 }
-
 .main-menu .navbar-nav li a:focus{
 	background-color: transparent;
 }
-
- 
 .main-menu.minified{
 	background-color: #232323;
 	padding: 0;
@@ -463,7 +416,6 @@ header.page-header .main-menu{
 .minified .navbar-brand{
 	display:none;
 }
-
 header.page-header .main-menu.minified{
 	position: fixed;
 }
@@ -471,12 +423,10 @@ header.page-header .main-menu.minified{
 	    float: left;
     width: 100%;
 }
- 
 .slider{
 	overflow: hidden;
 	background-color: #2A2B32;
 }
-
 .main-slides .img-overlay{
 	position: absolute;
 	width: 100%;
@@ -487,7 +437,6 @@ header.page-header .main-menu.minified{
 	right: 0;
 	/* background: rgba(23, 23, 23, 0.88); */
 }
-
 .main-slides h1.slider-text-big{
 	font-size: 42px;
 	color: #1b75bb;
@@ -497,12 +446,10 @@ header.page-header .main-menu.minified{
 	text-align: center;
 	margin-right: 50px;
 }
-
 .main-slides .slider-text h1 span{
 	
 	font-weight: 700;
 }
-
 .main-slides p{
 	font-weight: 400;
 	font-size: 18px !important;
@@ -520,7 +467,6 @@ header.page-header .main-menu.minified{
   position: absolute;
   bottom: 5%;
 }
-
 .slider .sp-button {
   border: 1px solid #FFFFFF;
   border-radius: 50%;
@@ -537,8 +483,6 @@ header.page-header .main-menu.minified{
     position: relative;
     height: 100%;
 }
-
-
 /* Home Style */
 header {
       background: url(/assets/img/BACKGROUND-PIC.png) no-repeat bottom right;

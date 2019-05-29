@@ -6,7 +6,6 @@ a{
 }
 .btn{
     width:110px;
-    /* margin-left: 40px; */
 }
 
 .page-header{
@@ -20,9 +19,15 @@ a{
     width: 40%;
     padding-left: 62px;
 }
-@media (max-width: 767px) {
+.emailtextBox{
+    margin-top: 10px;
+}
 
-    #companyDetails[_ngcontent-c2] {
+@media (max-width: 767px) {
+    .tableTopMargin{
+        margin-top: 15px;  
+    }
+        #companyDetails[_ngcontent-c2] {
         height: 390px !important;
     }
     /* .myList{ 

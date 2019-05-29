@@ -10,7 +10,6 @@ import { AdminService } from './../services/admin.service';
   templateUrl: './admin.component.html',
   styleUrls: ['./admin.component.css']
 })
-
 export class AdminComponent implements OnInit {
 
   adminObj: any;
@@ -40,6 +39,7 @@ export class AdminComponent implements OnInit {
     this.admin.getAllUsers(token).subscribe(
       (res) => {
         this.users = res;
+        console.log(this.users);
       }
     );
   }
@@ -48,6 +48,7 @@ export class AdminComponent implements OnInit {
     this.admin.getAllCompanies(token).subscribe(
       (res) => {
         this.companies = res;
+        console.log(this.companies);
       }
     );
   }
@@ -56,6 +57,8 @@ export class AdminComponent implements OnInit {
     this.admin.getAllInvoices(token).subscribe(
       (res) => {
         this.invoices = res;
+        console.log(token);
+        console.log(this.invoices);
       }
     );
   }
@@ -64,6 +67,8 @@ export class AdminComponent implements OnInit {
     this.admin.getAllQuotes(token).subscribe(
       (res) => {
         this.quotes = res;
+        console.log(token);
+        console.log(this.quotes);
       }
     );
   }
@@ -75,7 +80,7 @@ export class AdminComponent implements OnInit {
   }
 
   public viewUser(user) {
-    // console.log(user);
+    console.log(user);
     localStorage.setItem('user', JSON.stringify(user));
     this.route.navigateByUrl('/viewUser-Admin');
   }
@@ -83,6 +88,7 @@ export class AdminComponent implements OnInit {
   public viewQuote(quote) {
     // console.log(quote);
     localStorage.setItem('quote', JSON.stringify(quote));
+    console.log(localStorage.setItem('quote', JSON.stringify(quote)));
     this.route.navigateByUrl('/viewQuote-Admin');
   }
 

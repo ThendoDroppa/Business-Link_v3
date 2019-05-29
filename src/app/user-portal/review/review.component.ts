@@ -48,6 +48,8 @@ export class ReviewComponent implements OnInit {
     this.userPortalObj = JSON.parse(localStorage.getItem('userInfo'));
     this.company = JSON.parse(localStorage.getItem('CompanyQuote'));
     this.invoiceData = JSON.parse(localStorage.getItem('data'));
+    console.log(this.invoiceData);
+    console.log(this.userPortalObj);
   }
 
   onFormSubmit(form: NgForm, bankForm: NgForm) {
@@ -118,9 +120,6 @@ export class ReviewComponent implements OnInit {
               this.resultMsg = 'Failed to download the bill document.';
             }
           );
-
-          // console.log('Invoice created');
-
           this.isValidFormSubmitted = true;
           this.bill = form.controls['bill'].value;
           this.resetForm(form);

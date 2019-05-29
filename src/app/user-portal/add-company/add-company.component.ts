@@ -9,7 +9,6 @@ import { Company } from '../../models/company';
   templateUrl: './add-company.component.html',
   styleUrls: ['./add-company.component.css']
 })
-
 export class AddCompanyComponent implements OnInit {
 
   userPortalObj: any;
@@ -40,6 +39,7 @@ export class AddCompanyComponent implements OnInit {
 
   ngOnInit() {
     this.userToken = JSON.parse(localStorage.getItem('userInfo')).token;
+    console.log(this.userToken);
   }
 
   public addNewCompany() {
@@ -55,6 +55,7 @@ export class AddCompanyComponent implements OnInit {
         console.log(res);
         this.loader = false;
         this.msg = 'Company successfully added!';
+        console.log(this.msg);
         window.alert(this.msg);
         this.route.navigateByUrl('/dashboard');
       },

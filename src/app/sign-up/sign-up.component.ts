@@ -35,11 +35,10 @@ export class SignUpComponent implements OnInit {
   constructor(private loginService: LoginService, private route: Router) { }
 
   ngOnInit() {
-    console.log('Hello');
   }
 
   public register() {
-    console.log('Click here');
+    // console.log('Click here');
     this.user = new User(this.lastname, this.firstName, this.email, this.contactnumber);
     this.login = new Login(this.password, this.email);
     this.user.login = this.login;

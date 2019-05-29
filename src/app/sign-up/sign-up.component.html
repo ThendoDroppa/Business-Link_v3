@@ -19,9 +19,8 @@
                         pattern="[a-zA-Z ]*" type="text">
                 </div>
                 <p *ngIf="firstname.errors && (firstname.dirty || firstname.touched)">
-                    <span [hidden]="!firstname.errors.required" style="color:red;">Enter your firstname</span>
+                    <span [hidden]="!firstname.errors.required" style="color:red;">Enter your first name</span>
                 </p>
-
 
                 <div class="input-group margin-bottom-20">
                     <span class="input-group-addon">
@@ -31,7 +30,7 @@
                         placeholder="Last Name" name="lastname" id="lasttname" #lastName='ngModel' type="text">
                 </div>
                 <p *ngIf="lastName.errors && (lastName.dirty || lastName.touched)">
-                    <span [hidden]="!lastName.errors.required" style="color:red;">Enter your firstname</span>
+                    <span [hidden]="!lastName.errors.required" style="color:red;">Enter your last name</span>
                 </p>
 
                 <div class="input-group margin-bottom-20">
@@ -67,7 +66,8 @@
 
                 <div class="row">
                     <div class="col-md-12">
-                        <button class="btn-u pull-left" [disabled]="!userForm.form.valid" type="submit" (click)="register()">Register</button>
+                        <button class="btn-u pull-left" [disabled]="!userForm.form.valid" type="submit"
+                            (click)="register()">Register</button>
                     </div>
                 </div>
                 <h5 class="text-center" style="padding-top:3px !important;">{{error}}</h5>
